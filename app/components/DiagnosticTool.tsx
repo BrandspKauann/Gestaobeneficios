@@ -113,19 +113,19 @@ export function DiagnosticTool() {
           <article><span>ROTINA OPERACIONAL</span><strong>{result.monthlyHours}h</strong><p>estimadas por mês</p></article>
           <article><span>CUSTO OCULTO</span><strong>{result.hiddenCost.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 })}</strong><p>estimativa mensal</p></article>
           <article><span>RISCO DE DIVERGÊNCIA</span><strong>{result.risk}%</strong><p>exposição estimada</p></article>
-          <article className="priority-card"><span>PRIORIDADE SUGERIDA</span><strong>{result.route.label}</strong><p>{result.route.note}</p><Link href={result.route.href} target={answers.pain === "cards" ? "_blank" : undefined}>Entender esta frente ↗</Link></article>
+          <article className="priority-card"><span>PRIORIDADE SUGERIDA</span><strong>{result.route.label}</strong><p>{result.route.note}</p><Link href={result.route.href} target={answers.pain === "cards" ? "_blank" : undefined}>Entender esta frente</Link></article>
         </div>
         <div className="assumptions"><b>Premissas visíveis</b><p>4,33 semanas/mês · custo-hora de RH de R$ 72 · risco ponderado por fornecedores, nível de integração e frequência de ajustes. Ajuste estas premissas em uma conversa de diagnóstico.</p></div>
         <div className="lead-panel">
           {!sent ? <><div><span>RECEBA UMA LEITURA HUMANA</span><h3>Quer validar este resultado com um especialista?</h3><p>Envie seus dados. A conversa começa pelo cenário — sem indicação automática de fornecedor.</p></div>
-          <form onSubmit={submitLead}><input name="nome" required placeholder="Seu nome" aria-label="Seu nome" /><input name="empresa" required placeholder="Empresa" aria-label="Empresa" /><input name="email" type="email" required placeholder="E-mail corporativo" aria-label="E-mail corporativo" /><button className="button" disabled={sending}>{sending ? "Enviando..." : "Quero validar o diagnóstico"} <span>↗</span></button></form></> :
+          <form onSubmit={submitLead}><input name="nome" required placeholder="Seu nome" aria-label="Seu nome" /><input name="empresa" required placeholder="Empresa" aria-label="Empresa" /><input name="email" type="email" required placeholder="E-mail corporativo" aria-label="E-mail corporativo" /><button className="button" disabled={sending}>{sending ? "Enviando..." : "Quero validar o diagnóstico"}</button></form></> :
           <div className="success-message"><span>✓</span><h3>Recebemos seu diagnóstico.</h3><p>O próximo contato partirá deste cenário, não de uma lista de produtos.</p></div>}
         </div>
       </div>}
 
       <div className="tool-actions">
-        {step > 1 && <button className="back-button" onClick={() => setStep((current) => current - 1)}>← Voltar</button>}
-        {step < 3 && <button className="button" onClick={() => setStep((current) => current + 1)}>{step === 1 ? "Continuar" : "Calcular diagnóstico"} <span>↗</span></button>}
+        {step > 1 && <button className="back-button" onClick={() => setStep((current) => current - 1)}>Voltar</button>}
+        {step < 3 && <button className="button" onClick={() => setStep((current) => current + 1)}>{step === 1 ? "Continuar" : "Calcular diagnóstico"}</button>}
       </div>
     </section>
   );

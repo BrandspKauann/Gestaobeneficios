@@ -20,6 +20,8 @@ test("server-renders the diagnostic-first homepage", async () => {
   assert.match(html, /Diagnosticar minha gestão/);
   assert.match(html, /Gestão de Benefícios \| Diagnóstico para empresas/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Starter Project/);
+  assert.doesNotMatch(html, /↗|→|↑|←/);
+  assert.match(html, /categoria-saude-bem-estar-ai\.webp/);
 });
 
 test("renders unique category metadata and FAQ schema", async () => {
@@ -29,6 +31,16 @@ test("renders unique category metadata and FAQ schema", async () => {
   assert.match(html, /Benefício jurídico para empresas/);
   assert.match(html, /FAQPage/);
   assert.match(html, /https:\/\/www\.gestaobeneficios\.com\.br\/categorias\/beneficio-juridico/);
+  assert.match(html, /categoria-cuidado-juridico-ai\.webp/);
+  assert.doesNotMatch(html, /\/og\.png/);
+});
+
+test("renders a second category with its own primary image metadata", async () => {
+  const response = await render("/categorias/vale-saude-bem-estar");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Vale-saúde e bem-estar para empresas/);
+  assert.match(html, /categoria-saude-bem-estar-ai\.webp/);
   assert.doesNotMatch(html, /\/og\.png/);
 });
 

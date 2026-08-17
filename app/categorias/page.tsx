@@ -19,11 +19,11 @@ export default function CategoriesPage() {
       <section className="category-index content-section">
         {categories.map((category) => (
           <Link className="category-index-card" href={`/categorias/${category.slug}`} key={category.slug}>
-            <span>{category.index}</span><div><p>{category.title}</p><h2>{category.headline}</h2><small>{category.description}</small></div><b>↗</b>
+            <span>{category.index}</span><div><img src={category.image} alt="" /><p>{category.title}</p><h2>{category.headline}</h2><small>{category.description}</small></div><b>Ver</b>
           </Link>
         ))}
       </section>
-      <section className="inline-cta"><p className="eyebrow"><span /> Não sabe por onde começar?</p><h2>O diagnóstico organiza a prioridade.</h2><Link className="button" href="/diagnostico">Diagnosticar minha gestão <span>↗</span></Link></section>
+      <section className="inline-cta"><p className="eyebrow"><span /> Não sabe por onde começar?</p><h2>O diagnóstico organiza a prioridade.</h2><Link className="button" href="/diagnostico">Diagnosticar minha gestão</Link></section>
       <SiteFooter />
     </main>
   );

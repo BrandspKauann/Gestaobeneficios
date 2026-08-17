@@ -22,13 +22,16 @@ export function CategoryTemplate({ category }: { category: Category }) {
           <p className="eyebrow"><span /> Categoria {category.index}</p>
           <h1>{category.headline}</h1>
           <p>{category.description}</p>
-          <Link className="button" href="/diagnostico">Ver se faz sentido para minha empresa <span>↗</span></Link>
+          <Link className="button" href="/diagnostico">Ver se faz sentido para minha empresa</Link>
         </div>
-        <aside className="myth-card">
-          <span>MITO DE MERCADO</span>
-          <blockquote>“{category.myth}”</blockquote>
-          <p>{category.shift}</p>
-        </aside>
+        <div className="category-visual-stack">
+          <figure className="category-hero-image"><img src={category.image} alt={category.imageAlt} /></figure>
+          <aside className="myth-card">
+            <span>MITO DE MERCADO</span>
+            <blockquote>“{category.myth}”</blockquote>
+            <p>{category.shift}</p>
+          </aside>
+        </div>
       </section>
 
       <section className="decision-question">
@@ -78,7 +81,7 @@ export function CategoryTemplate({ category }: { category: Category }) {
         <p className="eyebrow"><span /> Próximo passo</p>
         <h2>Descubra se esta é a prioridade certa.</h2>
         <p>O diagnóstico cruza porte, dispersão e rotina operacional antes de sugerir um caminho.</p>
-        <Link className="button" href="/diagnostico">Começar diagnóstico <span>↗</span></Link>
+        <Link className="button" href="/diagnostico">Começar diagnóstico</Link>
       </section>
       <SiteFooter />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />

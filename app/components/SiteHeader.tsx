@@ -12,7 +12,7 @@ export function SiteHeader() {
         <Link href="/sobre-o-metodo">Nosso método</Link>
         <Link href="/para-quem-e">Para quem é</Link>
       </nav>
-      <Link className="button button-small desktop-cta" href="/diagnostico">Fazer diagnóstico <span>↗</span></Link>
+      <Link className="button button-small desktop-cta" href="/diagnostico">Fazer diagnóstico</Link>
       <details className="mobile-menu">
         <summary aria-label="Abrir menu"><span /><span /><span /></summary>
         <nav>

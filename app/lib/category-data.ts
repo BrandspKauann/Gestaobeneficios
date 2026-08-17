@@ -6,6 +6,8 @@ export type Category = {
   headline: string;
   description: string;
   metaDescription: string;
+  image: string;
+  imageAlt: string;
   myth: string;
   shift: string;
   question: string;
@@ -23,6 +25,8 @@ export const categories: Category[] = [
     headline: "Cuidado acessível sem começar por um plano tradicional.",
     description: "Entenda quando uma solução flexível de saúde e um marketplace de bem-estar podem ampliar o acesso ao cuidado sem criar uma estrutura incompatível com o porte da empresa.",
     metaDescription: "Entenda vale-saúde, saúde flexível e marketplaces de bem-estar para empresas que buscam ampliar o cuidado sem começar por um plano tradicional.",
+    image: "/images/categoria-saude-bem-estar-ai.webp",
+    imageAlt: "Composição editorial sobre acesso corporativo à saúde e ao bem-estar",
     myth: "Benefício de saúde de verdade precisa começar por um plano completo.",
     shift: "O ponto de partida não é o produto. É saber qual barreira impede o colaborador de cuidar da saúde hoje: preço, acesso, previsibilidade ou adesão.",
     question: "Seu time precisa de cobertura ampla ou de acesso recorrente a cuidado básico e bem-estar?",
@@ -50,6 +54,8 @@ export const categories: Category[] = [
     headline: "Quando um problema pessoal vira absenteísmo, o RH já está pagando a conta.",
     description: "Assistência jurídica pode ser uma camada de cuidado corporativo para orientar o colaborador antes que dúvidas familiares, financeiras ou de consumo se transformem em perda de foco.",
     metaDescription: "Saiba como assistência jurídica para colaboradores pode apoiar bem-estar, reduzir insegurança e prevenir impactos no trabalho.",
+    image: "/images/categoria-cuidado-juridico-ai.webp",
+    imageAlt: "Composição editorial sobre cuidado jurídico oferecido aos colaboradores",
     myth: "A vida jurídica do colaborador não tem relação com a empresa.",
     shift: "A empresa não precisa resolver a vida particular do time. Pode, porém, oferecer acesso qualificado para que uma dúvida deixe de consumir dias de ansiedade e horas de trabalho.",
     question: "Quanto da perda de foco do seu time nasce de problemas que poderiam ser orientados cedo?",
@@ -77,6 +83,8 @@ export const categories: Category[] = [
     headline: "O salário é mensal. Os imprevistos não.",
     description: "Antecipação salarial e acesso responsável a crédito podem aliviar emergências sem empurrar o colaborador para opções mais caras — desde que custo, educação e governança estejam claros.",
     metaDescription: "Avalie antecipação salarial via Pix, adiantamento e benefícios financeiros para apoiar colaboradores com responsabilidade e reduzir pressão sobre o RH.",
+    image: "/images/categoria-saude-financeira-ai.webp",
+    imageAlt: "Composição editorial sobre acesso responsável ao salário e saúde financeira",
     myth: "Antecipar salário sempre incentiva desorganização financeira.",
     shift: "O risco não está só no acesso. Está em oferecer crédito sem transparência, limites, educação e leitura do contexto financeiro do público.",
     question: "Sua política oferece uma saída segura para o imprevisto ou deixa o colaborador recorrer à opção mais cara?",
@@ -104,6 +112,8 @@ export const categories: Category[] = [
     headline: "Toda planilha paralela é uma decisão que o RH terá de conferir duas vezes.",
     description: "Mapeie fornecedores, movimentações, integrações e conciliações para reduzir dispersão operacional e devolver tempo estratégico ao RH.",
     metaDescription: "Diagnóstico de integração de benefícios com folha, dispersão de fornecedores, planilhas manuais e risco de erro para o RH.",
+    image: "/images/categoria-gestao-integrada-ai.webp",
+    imageAlt: "Composição editorial sobre integração de fornecedores, dados e folha de pagamento",
     myth: "Ter muitos fornecedores significa ter uma política mais completa.",
     shift: "Amplitude sem governança pode multiplicar portais, arquivos, prazos e divergências. A pergunta não é quantos benefícios existem, mas como eles conversam com a folha e com o RH.",
     question: "Quantas vezes o mesmo dado é digitado, exportado e conferido até a folha fechar?",
