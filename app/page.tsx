@@ -33,10 +33,14 @@ export default function Home() {
 
       <section className="problem-section content-section">
         <div className="section-heading split-heading"><div><p className="kicker">O CUSTO QUE NÃO APARECE NA FATURA</p><h2>Benefícios fragmentados consomem o RH em silêncio.</h2></div><p>Quando fornecedores, planilhas e regras não conversam, a empresa paga duas vezes: no contrato e no retrabalho.</p></div>
+        <figure className="audit-people-image">
+          <img src="/images/equipe-rh-operacao-beneficios-ai.webp" alt="Equipe de RH analisando a operação de benefícios em conjunto" />
+          <figcaption><span>VISÃO OPERACIONAL</span>Pessoas, processos e dados na mesma conversa.</figcaption>
+        </figure>
         <div className="audit-grid">
-          <article><span>01</span><div className="audit-icon">↻</div><h3>Tempo operacional</h3><p>Movimentações repetidas, portais diferentes e conferências que começam de novo todo mês.</p></article>
-          <article><span>02</span><div className="audit-icon">≠</div><h3>Risco de divergência</h3><p>Dados desencontrados entre fornecedor, elegibilidade e folha viram correção depois do fechamento.</p></article>
-          <article><span>03</span><div className="audit-icon">⌁</div><h3>Baixa percepção de valor</h3><p>Mais itens no pacote não significam mais cuidado quando o colaborador não entende ou não consegue usar.</p></article>
+          <article><span>01</span><h3>Tempo operacional</h3><p>Movimentações repetidas, portais diferentes e conferências que começam de novo todo mês.</p></article>
+          <article><span>02</span><h3>Risco de divergência</h3><p>Dados desencontrados entre fornecedor, elegibilidade e folha viram correção depois do fechamento.</p></article>
+          <article><span>03</span><h3>Baixa percepção de valor</h3><p>Mais itens no pacote não significam mais cuidado quando o colaborador não entende ou não consegue usar.</p></article>
         </div>
       </section>
 

@@ -21,7 +21,13 @@ test("server-renders the diagnostic-first homepage", async () => {
   assert.match(html, /Gestão de Benefícios \| Diagnóstico para empresas/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Starter Project/);
   assert.doesNotMatch(html, /↗|→|↑|←/);
+  assert.doesNotMatch(html, /↻|≠|⌁/);
+  assert.match(html, /equipe-rh-operacao-beneficios-ai\.webp/);
   assert.match(html, /categoria-saude-bem-estar-ai\.webp/);
+  assert.match(html, /categorias\/vale-saude-bem-estar/);
+  assert.match(html, /categorias\/beneficio-juridico/);
+  assert.match(html, /categorias\/antecipacao-salarial/);
+  assert.match(html, /categorias\/gestao-integrada-folha/);
 });
 
 test("renders unique category metadata and FAQ schema", async () => {
@@ -42,6 +48,27 @@ test("renders a second category with its own primary image metadata", async () =
   assert.match(html, /Vale-saúde e bem-estar para empresas/);
   assert.match(html, /categoria-saude-bem-estar-ai\.webp/);
   assert.doesNotMatch(html, /\/og\.png/);
+});
+
+test("renders all four categories as complete editorial articles", async () => {
+  const categoryRoutes = [
+    ["/categorias/vale-saude-bem-estar", "Acesso real"],
+    ["/categorias/beneficio-juridico", "Acesso confidencial"],
+    ["/categorias/antecipacao-salarial", "Natureza do produto"],
+    ["/categorias/gestao-integrada-folha", "Arquitetura"],
+  ];
+
+  for (const [pathname, uniqueContent] of categoryRoutes) {
+    const response = await render(pathname);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    assert.match(html, /ENTENDA A CATEGORIA/);
+    assert.match(html, /COMO FUNCIONA NA PRÁTICA/);
+    assert.match(html, /CRITÉRIOS DE DECISÃO/);
+    assert.match(html, /ROTEIRO DE AUDITORIA/);
+    assert.match(html, new RegExp(uniqueContent));
+    assert.match(html, /\"@type\":\"Article\"/);
+  }
 });
 
 test("renders the interactive diagnostic route", async () => {
