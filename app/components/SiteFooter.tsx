@@ -33,9 +33,12 @@ export function SiteFooter() {
       <footer className="site-footer">
         <div className="footer-main">
           <div className="footer-brand">
-            <a className="brand brand-light" href="/">
+            <a className="brand brand-light" href="/" aria-label="Gestão Benefícios by Hirayama - início">
               <span className="brand-mark brand-mark-light" aria-hidden="true"><i /><i /><i /></span>
-              <span><strong>gestão</strong>benefícios</span>
+              <span className="brand-copy">
+                <span className="brand-name"><strong>gestão</strong>benefícios</span>
+                <small className="brand-signature">by Hirayama</small>
+              </span>
             </a>
             <p>Diagnóstico antes de produto.<br />Decisões sem achismo.</p>
           </div>

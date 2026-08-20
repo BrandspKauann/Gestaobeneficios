@@ -1,0 +1,21 @@
+{
+  "name": "Gestão de Benefícios by Hirayama",
+  "short_name": "Gestão Benefícios",
+  "description": "Diagnóstico independente para a gestão de benefícios corporativos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4efe4",
+  "theme_color": "#103f3b",
+  "icons": [
+    {
+      "src": "/brand-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/brand-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

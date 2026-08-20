@@ -36,6 +36,10 @@ test("server-renders the diagnostic-first homepage", async () => {
   assert.match(html, /www\.instagram\.com\/ewertonhirayamaoficial/);
   assert.match(html, /politica-de-privacidade/);
   assert.match(html, /Redes sociais da Hirayama/);
+  assert.match(html, /by Hirayama/);
+  assert.match(html, /brand-icon-128\.png/);
+  assert.match(html, /apple-touch-icon\.png/);
+  assert.match(html, /site\.webmanifest/);
 });
 
 test("renders unique category metadata and FAQ schema", async () => {

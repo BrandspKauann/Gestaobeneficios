@@ -19,7 +19,13 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { default: title, template: "%s | Gestão de Benefícios" },
     description,
     alternates: { canonical: "https://www.gestaobeneficios.com.br/" },
-    icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
+    applicationName: "Gestão de Benefícios by Hirayama",
+    manifest: "/site.webmanifest",
+    icons: {
+      icon: [{ url: "/brand-icon-128.png", sizes: "128x128", type: "image/png" }],
+      shortcut: "/favicon.ico",
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    },
     openGraph: { title, description, type: "website", siteName: "Gestão de Benefícios", url: "https://www.gestaobeneficios.com.br/", images: [{ url: new URL("/og.png", requestBase).toString(), width: 1200, height: 630, alt: "Gestão de benefícios sem achismo" }] },
     twitter: { card: "summary_large_image", title, description, images: [new URL("/og.png", requestBase).toString()] },
   };
