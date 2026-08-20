@@ -106,3 +106,15 @@ test("uses full-document links for reliable cross-route navigation", async () =>
   const source = (await Promise.all(files.map((file) => readFile(new URL(file, import.meta.url), "utf8")))).join("\n");
   assert.doesNotMatch(source, /next\/link|<Link\b|<\/Link>/);
 });
+
+test("ships favicon files through the standard app metadata convention", async () => {
+  const [favicon, icon, appleIcon] = await Promise.all([
+    readFile(new URL("../app/favicon.ico", import.meta.url)),
+    readFile(new URL("../app/icon.png", import.meta.url)),
+    readFile(new URL("../app/apple-icon.png", import.meta.url)),
+  ]);
+
+  assert.ok(favicon.byteLength > 500);
+  assert.ok(icon.byteLength > 5000);
+  assert.ok(appleIcon.byteLength > 1000);
+});
