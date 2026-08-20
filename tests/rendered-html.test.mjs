@@ -29,6 +29,13 @@ test("server-renders the diagnostic-first homepage", async () => {
   assert.match(html, /categorias\/beneficio-juridico/);
   assert.match(html, /categorias\/antecipacao-salarial/);
   assert.match(html, /categorias\/gestao-integrada-folha/);
+  assert.match(html, /Entre em contato/);
+  assert.match(html, /contato@hirayamacorretora\.com\.br/);
+  assert.match(html, /www\.linkedin\.com\/in\/ewertonhirayama/);
+  assert.match(html, /www\.facebook\.com\/CorretoraHirayama/);
+  assert.match(html, /www\.instagram\.com\/ewertonhirayamaoficial/);
+  assert.match(html, /politica-de-privacidade/);
+  assert.match(html, /Redes sociais da Hirayama/);
 });
 
 test("renders unique category metadata and FAQ schema", async () => {
@@ -68,7 +75,7 @@ test("renders all four categories as complete editorial articles", async () => {
     assert.match(html, /CRITÉRIOS DE DECISÃO/);
     assert.match(html, /ROTEIRO DE AUDITORIA/);
     assert.match(html, new RegExp(uniqueContent));
-    assert.match(html, /\"@type\":\"Article\"/);
+    assert.match(html, /"@type":"Article"/);
   }
 });
 
