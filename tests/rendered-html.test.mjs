@@ -37,9 +37,9 @@ test("server-renders the diagnostic-first homepage", async () => {
   assert.match(html, /politica-de-privacidade/);
   assert.match(html, /Redes sociais da Hirayama/);
   assert.match(html, /by Hirayama/);
-  assert.match(html, /gestao-beneficios-favicon-v2\.ico/);
-  assert.match(html, /gestao-beneficios-icon-v2\.png/);
-  assert.match(html, /apple-touch-icon\.png/);
+  assert.match(html, /rel="icon" href="\/favicon\.ico\?[^\"]+"/);
+  assert.match(html, /rel="icon" href="\/icon\.png\?[^\"]+"/);
+  assert.match(html, /rel="apple-touch-icon" href="\/apple-icon\.png\?[^\"]+"/);
   assert.match(html, /site\.webmanifest/);
 });
 
