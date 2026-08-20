@@ -13,14 +13,14 @@ export function SiteHeader() {
         <a href="/sobre-o-metodo">Nosso método</a>
         <a href="/para-quem-e">Para quem é</a>
       </nav>
-      <a className="button button-small desktop-cta" href="/diagnostico">Fazer diagnóstico</a>
+      <a className="button button-small desktop-cta" href="/diagnostico">Diagnóstico gratuito</a>
       <details className="mobile-menu">
         <summary aria-label="Abrir menu"><span /><span /><span /></summary>
         <nav>
           <a href="/categorias">Categorias</a>
           <a href="/sobre-o-metodo">Nosso método</a>
           <a href="/para-quem-e">Para quem é</a>
-          <a href="/diagnostico">Fazer diagnóstico</a>
+          <a href="/diagnostico">Diagnóstico gratuito</a>
         </nav>
       </details>
     </header>

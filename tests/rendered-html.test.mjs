@@ -17,9 +17,9 @@ test("server-renders the diagnostic-first homepage", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /Benefícios não deveriam ser/);
-  assert.match(html, /Diagnosticar minha gestão/);
-  assert.match(html, /Gestão de Benefícios \| Diagnóstico para empresas/);
+  assert.match(html, /Reduza o custo oculto/);
+  assert.match(html, /Quero meu diagnóstico gratuito/);
+  assert.match(html, /Gestão de Benefícios \| Reduza custos e retrabalho no RH/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Starter Project/);
   assert.doesNotMatch(html, /↗|→|↑|←/);
   assert.doesNotMatch(html, /↻|≠|⌁/);
@@ -88,7 +88,7 @@ test("renders the interactive diagnostic route", async () => {
   const response = await render("/diagnostico");
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /Quanto a dispersão de benefícios custa ao seu RH/);
+  assert.match(html, /Descubra quanto sua gestão de benefícios pode estar custando/);
   assert.match(html, /Quantos colaboradores a empresa tem/);
 });
 

@@ -11,8 +11,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "www.gestaobeneficios.com.br";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
   const requestBase = new URL(`${protocol}://${host}`);
-  const title = "Gestão de Benefícios | Diagnóstico para empresas";
-  const description = "Diagnóstico independente para reduzir custo oculto, retrabalho e risco na gestão de benefícios corporativos.";
+  const title = "Gestão de Benefícios | Reduza custos e retrabalho no RH";
+  const description = "Descubra onde sua empresa perde tempo e dinheiro com benefícios e receba uma prioridade clara para agir em menos de três minutos.";
 
   return {
     metadataBase: requestBase,

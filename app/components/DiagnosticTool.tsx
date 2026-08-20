@@ -58,7 +58,7 @@ export function DiagnosticTool() {
   return (
     <section className="diagnostic-tool">
       <div className="tool-head">
-        <div><span>DIAGNÓSTICO DE ENTRADA</span><h2>{step < 3 ? "Mapeie a operação em menos de 3 minutos." : "Seu mapa inicial está pronto."}</h2></div>
+        <div><span>DIAGNÓSTICO DE ENTRADA</span><h2>{step < 3 ? "Descubra seu potencial de melhoria em menos de 3 minutos." : "Seu resultado inicial está pronto."}</h2></div>
         <div className="step-status"><b>0{step}</b><span>/ 03</span></div>
       </div>
       <div className="progress-line"><i style={{ width: `${step * 33.333}%` }} /></div>
@@ -112,13 +112,13 @@ export function DiagnosticTool() {
           <article><span>ROTINA OPERACIONAL</span><strong>{result.monthlyHours}h</strong><p>estimadas por mês</p></article>
           <article><span>CUSTO OCULTO</span><strong>{result.hiddenCost.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 })}</strong><p>estimativa mensal</p></article>
           <article><span>RISCO DE DIVERGÊNCIA</span><strong>{result.risk}%</strong><p>exposição estimada</p></article>
-          <article className="priority-card"><span>PRIORIDADE SUGERIDA</span><strong>{result.route.label}</strong><p>{result.route.note}</p><a href={result.route.href} target={answers.pain === "cards" ? "_blank" : undefined}>Entender esta frente</a></article>
+          <article className="priority-card"><span>PRÓXIMO PASSO RECOMENDADO</span><strong>{result.route.label}</strong><p>{result.route.note}</p><a href={result.route.href} target={answers.pain === "cards" ? "_blank" : undefined}>Ver como melhorar esta frente</a></article>
         </div>
         <div className="assumptions"><b>Premissas visíveis</b><p>4,33 semanas/mês · custo-hora de RH de R$ 72 · risco ponderado por fornecedores, nível de integração e frequência de ajustes. Ajuste estas premissas em uma conversa de diagnóstico.</p></div>
         <div className="lead-panel">
-          {!sent ? <><div><span>RECEBA UMA LEITURA HUMANA</span><h3>Quer validar este resultado com um especialista?</h3><p>Envie seus dados. A conversa começa pelo cenário — sem indicação automática de fornecedor.</p></div>
-          <form onSubmit={submitLead}><input name="nome" required placeholder="Seu nome" aria-label="Seu nome" /><input name="empresa" required placeholder="Empresa" aria-label="Empresa" /><input name="email" type="email" required placeholder="E-mail corporativo" aria-label="E-mail corporativo" /><button className="button" disabled={sending}>{sending ? "Enviando..." : "Quero validar o diagnóstico"}</button></form></> :
-          <div className="success-message"><span>✓</span><h3>Recebemos seu diagnóstico.</h3><p>O próximo contato partirá deste cenário, não de uma lista de produtos.</p></div>}
+          {!sent ? <><div><span>ANÁLISE PERSONALIZADA</span><h3>Quer transformar este resultado em um plano de ação?</h3><p>Receba uma leitura humana do seu cenário, com foco no que pode gerar mais impacto para a empresa.</p></div>
+          <form onSubmit={submitLead}><input name="nome" required placeholder="Seu nome" aria-label="Seu nome" /><input name="empresa" required placeholder="Empresa" aria-label="Empresa" /><input name="email" type="email" required placeholder="E-mail corporativo" aria-label="E-mail corporativo" /><button className="button" disabled={sending}>{sending ? "Enviando..." : "Quero uma análise gratuita"}</button></form></> :
+          <div className="success-message"><span>✓</span><h3>Recebemos seu diagnóstico.</h3><p>O próximo contato transformará este resultado em uma conversa prática sobre prioridades e próximos passos.</p></div>}
         </div>
       </div>}
 

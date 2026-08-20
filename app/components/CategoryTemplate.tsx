@@ -32,8 +32,8 @@ export function CategoryTemplate({ category }: { category: Category }) {
           <p className="eyebrow"><span /> Categoria {category.index}</p>
           <h1>{category.headline}</h1>
           <p>{category.description}</p>
-          <div className="article-meta"><span>GUIA DE DECISÃO</span><span>LEITURA EDITORIAL</span><span>ANÁLISE INDEPENDENTE</span></div>
-          <a className="button" href="/diagnostico">Ver se faz sentido para minha empresa</a>
+          <div className="article-meta"><span>GUIA PRÁTICO</span><span>CRITÉRIOS DE COMPRA</span><span>ANÁLISE INDEPENDENTE</span></div>
+          <a className="button" href="/diagnostico">Avaliar esta solução para minha empresa</a>
         </div>
         <div className="category-visual-stack">
           <figure className="category-hero-image"><img src={category.image} alt={category.imageAlt} /></figure>
@@ -78,8 +78,8 @@ export function CategoryTemplate({ category }: { category: Category }) {
       <section className="content-section" id="sinais">
         <div className="section-heading">
           <p className="kicker">SINAIS PARA INVESTIGAR</p>
-          <h2>Antes de comparar soluções, leia o cenário.</h2>
-          <p>Três sinais ajudam a identificar se esta categoria merece entrar na sua política — e qual problema ela deveria resolver.</p>
+          <h2>Veja se esta frente pode gerar valor agora.</h2>
+          <p>Três sinais ajudam a identificar se esta categoria merece entrar no seu plano de ação — e qual resultado ela precisa entregar.</p>
         </div>
         <div className="three-grid">
           {category.signs.map((sign, index) => (
@@ -93,8 +93,8 @@ export function CategoryTemplate({ category }: { category: Category }) {
       <section className="how-section" id="como-funciona">
         <div className="section-heading light-heading">
           <p className="kicker">COMO FUNCIONA NA PRÁTICA</p>
-          <h2>Da necessidade à operação, sem pular etapas.</h2>
-          <p>Uma implantação consistente separa problema, desenho e acompanhamento. O produto entra depois que essas decisões estão claras.</p>
+          <h2>Da oportunidade a uma operação que entrega valor.</h2>
+          <p>Uma implantação consistente separa problema, desenho e acompanhamento para transformar contratação em resultado percebido.</p>
         </div>
         <div className="how-grid">
           {category.howItWorks.map((step, index) => <article key={step.title}><span>0{index + 1}</span><div><h3>{step.title}</h3><p>{step.text}</p></div></article>)}
@@ -103,8 +103,8 @@ export function CategoryTemplate({ category }: { category: Category }) {
 
       <section className="criteria-section content-section" id="criterios">
         <div className="section-heading split-heading">
-          <div><p className="kicker">CRITÉRIOS DE DECISÃO</p><h2>Compare evidências, não apenas apresentações comerciais.</h2></div>
-          <p>Use as mesmas perguntas com todos os fornecedores. Isso reduz viés, revela custos escondidos e deixa as diferenças realmente comparáveis.</p>
+          <div><p className="kicker">CRITÉRIOS DE DECISÃO</p><h2>Compare o que realmente afeta custo, uso e resultado.</h2></div>
+          <p>Use as mesmas perguntas com todos os fornecedores para revelar custos escondidos e tornar as diferenças realmente comparáveis.</p>
         </div>
         <div className="criteria-table" role="table" aria-label={`Critérios para avaliar ${category.title}`}>
           <div className="criteria-row criteria-head" role="row"><span role="columnheader">Dimensão</span><span role="columnheader">Pergunta de auditoria</span><span role="columnheader">Evidência para pedir</span></div>
@@ -115,19 +115,19 @@ export function CategoryTemplate({ category }: { category: Category }) {
       <section className="audit-playbook content-section" id="roteiro">
         <div className="audit-checklist">
           <p className="kicker">ROTEIRO DE AUDITORIA</p>
-          <h2>Quatro verificações antes de contratar ou renovar.</h2>
+          <h2>Quatro verificações para investir com mais segurança.</h2>
           <ol>{category.checklist.slice(0, 4).map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></li>)}</ol>
         </div>
         <aside className="metrics-panel">
           <p className="kicker">INDICADORES PARA ACOMPANHAR</p>
-          <h3>O contrato começa. A análise continua.</h3>
+          <h3>Contratar é só o começo. O valor precisa aparecer.</h3>
           <div>{category.metrics.slice(0, 3).map((metric) => <article key={metric.label}><b>{metric.label}</b><p>{metric.text}</p></article>)}</div>
         </aside>
       </section>
 
       <section className="faq-section" id="duvidas">
         <div className="section-heading">
-          <p className="kicker">DÚVIDAS COMUNS</p><h2>Sem atalho na decisão.</h2>
+          <p className="kicker">DÚVIDAS COMUNS</p><h2>Decida com mais segurança.</h2>
         </div>
         <div className="faq-list">
           {category.faqs.map((faq) => (
@@ -138,15 +138,15 @@ export function CategoryTemplate({ category }: { category: Category }) {
       </article>
 
       <section className="related-section content-section">
-        <div className="section-heading"><p className="kicker">CONTINUE A ANÁLISE</p><h2>Outras frentes que podem mudar o mesmo cenário.</h2></div>
+        <div className="section-heading"><p className="kicker">COMPARE OUTRAS FRENTES</p><h2>Encontre a melhor combinação para o seu plano de ação.</h2></div>
         <div className="related-grid">{relatedCategories.map((item) => <a href={`/categorias/${item.slug}`} key={item.slug}><img src={item.image} alt={item.imageAlt} /><div><span>{item.index}</span><h3>{item.title}</h3><b>Ler análise</b></div></a>)}</div>
       </section>
 
       <section className="inline-cta">
-        <p className="eyebrow"><span /> Próximo passo</p>
-        <h2>Descubra se esta é a prioridade certa.</h2>
-        <p>O diagnóstico cruza porte, dispersão e rotina operacional antes de sugerir um caminho.</p>
-        <a className="button" href="/diagnostico">Começar diagnóstico</a>
+        <p className="eyebrow"><span /> Diagnóstico gratuito</p>
+        <h2>Veja se esta categoria deve entrar no seu plano de ação.</h2>
+        <p>Em menos de três minutos, cruze porte, dispersão e rotina para descobrir onde agir primeiro.</p>
+        <a className="button" href="/diagnostico">Avaliar minha empresa agora</a>
       </section>
       <SiteFooter />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />

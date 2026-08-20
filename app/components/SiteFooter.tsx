@@ -40,7 +40,7 @@ export function SiteFooter() {
                 <small className="brand-signature">by Hirayama</small>
               </span>
             </a>
-            <p>Diagnóstico antes de produto.<br />Decisões sem achismo.</p>
+            <p>Mais clareza para reduzir<br />custo, risco e retrabalho.</p>
           </div>
           <div className="footer-links">
             <div><b>Explore</b><a href="/categorias">Categorias</a><a href="/diagnostico">Diagnóstico</a><a href="/para-quem-e">Para quem é</a></div>

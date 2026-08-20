@@ -5,7 +5,7 @@ import { categories } from "../lib/category-data";
 
 export const metadata: Metadata = {
   title: "Categorias de benefícios corporativos",
-  description: "Explore saúde e bem-estar, cuidado jurídico, antecipação salarial e gestão integrada à folha sob uma ótica de diagnóstico.",
+  description: "Compare quatro frentes de benefícios corporativos e descubra qual pode reduzir custo, risco e retrabalho na sua empresa.",
   alternates: { canonical: "https://www.gestaobeneficios.com.br/categorias" },
 };
 
@@ -13,7 +13,7 @@ export default function CategoriesPage() {
   return (
     <main><SiteHeader />
       <section className="inner-hero compact-hero">
-        <div className="inner-hero-copy"><p className="eyebrow"><span /> Mapa de decisões</p><h1>Quatro frentes. Uma pergunta antes de todas.</h1><p>Qual problema sua política de benefícios precisa resolver agora? Comece pela dor, não pelo fornecedor.</p></div>
+        <div className="inner-hero-copy"><p className="eyebrow"><span /> Escolha com mais clareza</p><h1>Encontre a solução certa para o problema que mais custa à sua empresa.</h1><p>Compare quatro frentes pela dor que resolvem e pelo resultado que podem gerar — antes de escolher fornecedor.</p></div>
       </section>
       <section className="category-index content-section">
         {categories.map((category) => (
@@ -22,7 +22,7 @@ export default function CategoriesPage() {
           </a>
         ))}
       </section>
-      <section className="inline-cta"><p className="eyebrow"><span /> Não sabe por onde começar?</p><h2>O diagnóstico organiza a prioridade.</h2><a className="button" href="/diagnostico">Diagnosticar minha gestão</a></section>
+      <section className="inline-cta"><p className="eyebrow"><span /> Descubra sua prioridade</p><h2>Em menos de três minutos, veja onde agir primeiro.</h2><a className="button" href="/diagnostico">Fazer diagnóstico gratuito</a></section>
       <SiteFooter />
     </main>
   );
