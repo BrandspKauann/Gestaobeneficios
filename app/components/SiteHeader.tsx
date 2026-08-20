@@ -1,25 +1,23 @@
-import Link from "next/link";
-
 export function SiteHeader() {
   return (
     <header className="site-header">
-      <Link className="brand" href="/" aria-label="Gestão Benefícios - início">
+      <a className="brand" href="/" aria-label="Gestão Benefícios - início">
         <span className="brand-mark" aria-hidden="true"><i /><i /><i /></span>
         <span><strong>gestão</strong>benefícios</span>
-      </Link>
+      </a>
       <nav className="main-nav" aria-label="Navegação principal">
-        <Link href="/categorias">Categorias</Link>
-        <Link href="/sobre-o-metodo">Nosso método</Link>
-        <Link href="/para-quem-e">Para quem é</Link>
+        <a href="/categorias">Categorias</a>
+        <a href="/sobre-o-metodo">Nosso método</a>
+        <a href="/para-quem-e">Para quem é</a>
       </nav>
-      <Link className="button button-small desktop-cta" href="/diagnostico">Fazer diagnóstico</Link>
+      <a className="button button-small desktop-cta" href="/diagnostico">Fazer diagnóstico</a>
       <details className="mobile-menu">
         <summary aria-label="Abrir menu"><span /><span /><span /></summary>
         <nav>
-          <Link href="/categorias">Categorias</Link>
-          <Link href="/sobre-o-metodo">Nosso método</Link>
-          <Link href="/para-quem-e">Para quem é</Link>
-          <Link href="/diagnostico">Fazer diagnóstico</Link>
+          <a href="/categorias">Categorias</a>
+          <a href="/sobre-o-metodo">Nosso método</a>
+          <a href="/para-quem-e">Para quem é</a>
+          <a href="/diagnostico">Fazer diagnóstico</a>
         </nav>
       </details>
     </header>

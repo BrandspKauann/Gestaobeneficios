@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
 
@@ -14,5 +13,5 @@ export default function MethodPage() {
       <article><span>03</span><div><p>PRIORIZAR</p><h3>Qual decisão move o ponteiro agora?</h3><small>O resultado pode apontar integração, acesso à saúde, cuidado jurídico, saúde financeira ou uma frente especializada do ecossistema. A categoria vem antes da marca.</small></div></article>
     </div></section>
     <section className="principles-section"><div className="section-heading light-heading"><p className="kicker">O QUE PROTEGEMOS</p><h2>Independência na entrada.<br />Clareza na saída.</h2></div><div className="principles-grid"><article><b>01</b><h3>Sem catálogo disfarçado</h3><p>A home não organiza parceiros; organiza perguntas.</p></article><article><b>02</b><h3>Premissas transparentes</h3><p>Estimativas mostram como foram construídas.</p></article><article><b>03</b><h3>Escopo proporcional</h3><p>Porte, público e maturidade mudam a decisão.</p></article><article><b>04</b><h3>Intermediação responsável</h3><p>Qualquer solução depende de avaliação individual.</p></article></div></section>
-    <section className="inline-cta"><p className="eyebrow"><span /> Aplique o método</p><h2>Comece pelo seu cenário.</h2><Link className="button" href="/diagnostico">Fazer diagnóstico</Link></section><SiteFooter /></main>;
+    <section className="inline-cta"><p className="eyebrow"><span /> Aplique o método</p><h2>Comece pelo seu cenário.</h2><a className="button" href="/diagnostico">Fazer diagnóstico</a></section><SiteFooter /></main>;
 }

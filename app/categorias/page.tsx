@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
 import { categories } from "../lib/category-data";
@@ -18,12 +17,12 @@ export default function CategoriesPage() {
       </section>
       <section className="category-index content-section">
         {categories.map((category) => (
-          <Link className="category-index-card" href={`/categorias/${category.slug}`} key={category.slug}>
+          <a className="category-index-card" href={`/categorias/${category.slug}`} key={category.slug}>
             <span>{category.index}</span><div><img src={category.image} alt="" /><p>{category.title}</p><h2>{category.headline}</h2><small>{category.description}</small></div><b>Ver</b>
-          </Link>
+          </a>
         ))}
       </section>
-      <section className="inline-cta"><p className="eyebrow"><span /> Não sabe por onde começar?</p><h2>O diagnóstico organiza a prioridade.</h2><Link className="button" href="/diagnostico">Diagnosticar minha gestão</Link></section>
+      <section className="inline-cta"><p className="eyebrow"><span /> Não sabe por onde começar?</p><h2>O diagnóstico organiza a prioridade.</h2><a className="button" href="/diagnostico">Diagnosticar minha gestão</a></section>
       <SiteFooter />
     </main>
   );

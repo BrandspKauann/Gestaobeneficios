@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { categories, type Category } from "../lib/category-data";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
@@ -29,12 +28,12 @@ export function CategoryTemplate({ category }: { category: Category }) {
       <SiteHeader />
       <section className="inner-hero category-hero">
         <div className="inner-hero-copy">
-          <nav className="category-breadcrumb" aria-label="Navegação estrutural"><Link href="/">Início</Link><span>/</span><Link href="/categorias">Categorias</Link><span>/</span><b>{category.title}</b></nav>
+          <nav className="category-breadcrumb" aria-label="Navegação estrutural"><a href="/">Início</a><span>/</span><a href="/categorias">Categorias</a><span>/</span><b>{category.title}</b></nav>
           <p className="eyebrow"><span /> Categoria {category.index}</p>
           <h1>{category.headline}</h1>
           <p>{category.description}</p>
           <div className="article-meta"><span>GUIA DE DECISÃO</span><span>LEITURA EDITORIAL</span><span>ANÁLISE INDEPENDENTE</span></div>
-          <Link className="button" href="/diagnostico">Ver se faz sentido para minha empresa</Link>
+          <a className="button" href="/diagnostico">Ver se faz sentido para minha empresa</a>
         </div>
         <div className="category-visual-stack">
           <figure className="category-hero-image"><img src={category.image} alt={category.imageAlt} /></figure>
@@ -140,14 +139,14 @@ export function CategoryTemplate({ category }: { category: Category }) {
 
       <section className="related-section content-section">
         <div className="section-heading"><p className="kicker">CONTINUE A ANÁLISE</p><h2>Outras frentes que podem mudar o mesmo cenário.</h2></div>
-        <div className="related-grid">{relatedCategories.map((item) => <Link href={`/categorias/${item.slug}`} key={item.slug}><img src={item.image} alt={item.imageAlt} /><div><span>{item.index}</span><h3>{item.title}</h3><b>Ler análise</b></div></Link>)}</div>
+        <div className="related-grid">{relatedCategories.map((item) => <a href={`/categorias/${item.slug}`} key={item.slug}><img src={item.image} alt={item.imageAlt} /><div><span>{item.index}</span><h3>{item.title}</h3><b>Ler análise</b></div></a>)}</div>
       </section>
 
       <section className="inline-cta">
         <p className="eyebrow"><span /> Próximo passo</p>
         <h2>Descubra se esta é a prioridade certa.</h2>
         <p>O diagnóstico cruza porte, dispersão e rotina operacional antes de sugerir um caminho.</p>
-        <Link className="button" href="/diagnostico">Começar diagnóstico</Link>
+        <a className="button" href="/diagnostico">Começar diagnóstico</a>
       </section>
       <SiteFooter />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />

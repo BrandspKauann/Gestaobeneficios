@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
 
@@ -13,5 +12,5 @@ const profiles = [
 
 export default function ForWhoPage() { return <main><SiteHeader />
   <section className="inner-hero compact-hero"><div className="inner-hero-copy"><p className="eyebrow"><span /> Para quem é</p><h1>O porte muda a operação. O método continua o mesmo.</h1><p>Diagnóstico para empresas que precisam transformar benefícios em uma política coerente com o time, o caixa e a maturidade do RH.</p></div></section>
-  <section className="company-profiles content-section">{profiles.map((profile) => <article key={profile.title}><div className="profile-number">{profile.number}</div><div><span>{profile.people}</span><h2>{profile.title}</h2><h3>{profile.headline}</h3><p>{profile.copy}</p><ul>{profile.points.map((point) => <li key={point}>✓ {point}</li>)}</ul><Link href="/diagnostico">Diagnosticar este cenário</Link></div></article>)}</section>
-  <section className="inline-cta"><p className="eyebrow"><span /> Qual é o seu cenário?</p><h2>O tamanho orienta. A rotina confirma.</h2><p>Leve porte, fornecedores, horas e nível de integração para a mesma leitura.</p><Link className="button" href="/diagnostico">Começar diagnóstico</Link></section><SiteFooter /></main>; }
+  <section className="company-profiles content-section">{profiles.map((profile) => <article key={profile.title}><div className="profile-number">{profile.number}</div><div><span>{profile.people}</span><h2>{profile.title}</h2><h3>{profile.headline}</h3><p>{profile.copy}</p><ul>{profile.points.map((point) => <li key={point}>✓ {point}</li>)}</ul><a href="/diagnostico">Diagnosticar este cenário</a></div></article>)}</section>
+  <section className="inline-cta"><p className="eyebrow"><span /> Qual é o seu cenário?</p><h2>O tamanho orienta. A rotina confirma.</h2><p>Leve porte, fornecedores, horas e nível de integração para a mesma leitura.</p><a className="button" href="/diagnostico">Começar diagnóstico</a></section><SiteFooter /></main>; }

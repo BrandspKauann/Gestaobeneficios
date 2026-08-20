@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
-import Link from "next/link";
 
 type Answers = {
   employees: number;
@@ -113,7 +112,7 @@ export function DiagnosticTool() {
           <article><span>ROTINA OPERACIONAL</span><strong>{result.monthlyHours}h</strong><p>estimadas por mês</p></article>
           <article><span>CUSTO OCULTO</span><strong>{result.hiddenCost.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 })}</strong><p>estimativa mensal</p></article>
           <article><span>RISCO DE DIVERGÊNCIA</span><strong>{result.risk}%</strong><p>exposição estimada</p></article>
-          <article className="priority-card"><span>PRIORIDADE SUGERIDA</span><strong>{result.route.label}</strong><p>{result.route.note}</p><Link href={result.route.href} target={answers.pain === "cards" ? "_blank" : undefined}>Entender esta frente</Link></article>
+          <article className="priority-card"><span>PRIORIDADE SUGERIDA</span><strong>{result.route.label}</strong><p>{result.route.note}</p><a href={result.route.href} target={answers.pain === "cards" ? "_blank" : undefined}>Entender esta frente</a></article>
         </div>
         <div className="assumptions"><b>Premissas visíveis</b><p>4,33 semanas/mês · custo-hora de RH de R$ 72 · risco ponderado por fornecedores, nível de integração e frequência de ajustes. Ajuste estas premissas em uma conversa de diagnóstico.</p></div>
         <div className="lead-panel">

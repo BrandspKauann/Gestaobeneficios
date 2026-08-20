@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render(pathname = "/") {
@@ -77,4 +78,19 @@ test("renders the interactive diagnostic route", async () => {
   const html = await response.text();
   assert.match(html, /Quanto a dispersão de benefícios custa ao seu RH/);
   assert.match(html, /Quantos colaboradores a empresa tem/);
+});
+
+test("uses full-document links for reliable cross-route navigation", async () => {
+  const files = [
+    "../app/page.tsx",
+    "../app/categorias/page.tsx",
+    "../app/components/CategoryTemplate.tsx",
+    "../app/components/DiagnosticTool.tsx",
+    "../app/components/SiteHeader.tsx",
+    "../app/components/SiteFooter.tsx",
+    "../app/sobre-o-metodo/page.tsx",
+    "../app/para-quem-e/page.tsx",
+  ];
+  const source = (await Promise.all(files.map((file) => readFile(new URL(file, import.meta.url), "utf8")))).join("\n");
+  assert.doesNotMatch(source, /next\/link|<Link\b|<\/Link>/);
 });
