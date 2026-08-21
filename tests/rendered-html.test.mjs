@@ -37,6 +37,8 @@ test("server-renders the diagnostic-first homepage", async () => {
   assert.match(html, /politica-de-privacidade/);
   assert.match(html, /Redes sociais da Hirayama/);
   assert.match(html, /by Hirayama/);
+  assert.match(html, /<strong>Gestão<\/strong> de Benefícios/);
+  assert.doesNotMatch(html, /Gestão Benefícios|gestão<\/strong>benefícios/);
   assert.match(html, /rel="icon" href="\/favicon\.ico\?[^\"]+"/);
   assert.match(html, /rel="icon" href="\/icon\.png\?[^\"]+"/);
   assert.match(html, /rel="apple-touch-icon" href="\/apple-icon\.png\?[^\"]+"/);

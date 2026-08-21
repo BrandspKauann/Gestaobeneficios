@@ -5,7 +5,7 @@ import { categories } from "../lib/category-data";
 
 export const metadata: Metadata = {
   title: "Categorias de benefícios corporativos",
-  description: "Compare quatro frentes de benefícios corporativos e descubra qual pode reduzir custo, risco e retrabalho na sua empresa.",
+  description: "Compare quatro frentes de benefícios corporativos e descubra qual pode reduzir custos, riscos e retrabalho na sua empresa.",
   alternates: { canonical: "https://www.gestaobeneficios.com.br/categorias" },
 };
 
@@ -13,7 +13,7 @@ export default function CategoriesPage() {
   return (
     <main><SiteHeader />
       <section className="inner-hero compact-hero">
-        <div className="inner-hero-copy"><p className="eyebrow"><span /> Escolha com mais clareza</p><h1>Encontre a solução certa para o problema que mais custa à sua empresa.</h1><p>Compare quatro frentes pela dor que resolvem e pelo resultado que podem gerar — antes de escolher fornecedor.</p></div>
+        <div className="inner-hero-copy"><p className="eyebrow"><span /> Escolha com mais clareza</p><h1>Encontre a solução certa para o problema que mais custa à sua empresa.</h1><p>Compare quatro frentes pela dor que resolvem e pelo resultado que podem gerar — antes de escolher um fornecedor.</p></div>
       </section>
       <section className="category-index content-section">
         {categories.map((category) => (

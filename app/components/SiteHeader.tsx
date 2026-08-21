@@ -1,10 +1,10 @@
 export function SiteHeader() {
   return (
     <header className="site-header">
-      <a className="brand" href="/" aria-label="Gestão Benefícios by Hirayama - início">
+      <a className="brand" href="/" aria-label="Gestão de Benefícios by Hirayama — início">
         <span className="brand-mark" aria-hidden="true"><i /><i /><i /></span>
         <span className="brand-copy">
-          <span className="brand-name"><strong>gestão</strong>benefícios</span>
+          <span className="brand-name"><strong>Gestão</strong> de Benefícios</span>
           <small className="brand-signature">by Hirayama</small>
         </span>
       </a>

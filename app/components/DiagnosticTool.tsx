@@ -118,7 +118,7 @@ export function DiagnosticTool() {
         <div className="lead-panel">
           {!sent ? <><div><span>ANÁLISE PERSONALIZADA</span><h3>Quer transformar este resultado em um plano de ação?</h3><p>Receba uma leitura humana do seu cenário, com foco no que pode gerar mais impacto para a empresa.</p></div>
           <form onSubmit={submitLead}><input name="nome" required placeholder="Seu nome" aria-label="Seu nome" /><input name="empresa" required placeholder="Empresa" aria-label="Empresa" /><input name="email" type="email" required placeholder="E-mail corporativo" aria-label="E-mail corporativo" /><button className="button" disabled={sending}>{sending ? "Enviando..." : "Quero uma análise gratuita"}</button></form></> :
-          <div className="success-message"><span>✓</span><h3>Recebemos seu diagnóstico.</h3><p>O próximo contato transformará este resultado em uma conversa prática sobre prioridades e próximos passos.</p></div>}
+          <div className="success-message"><span>✓</span><h3>Recebemos seu diagnóstico.</h3><p>No próximo contato, conversaremos sobre suas prioridades e os próximos passos mais adequados.</p></div>}
         </div>
       </div>}
 

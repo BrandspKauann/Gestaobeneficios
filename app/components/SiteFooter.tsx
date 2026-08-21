@@ -33,10 +33,10 @@ export function SiteFooter() {
       <footer className="site-footer">
         <div className="footer-main">
           <div className="footer-brand">
-            <a className="brand brand-light" href="/" aria-label="Gestão Benefícios by Hirayama - início">
+            <a className="brand brand-light" href="/" aria-label="Gestão de Benefícios by Hirayama — início">
               <span className="brand-mark brand-mark-light" aria-hidden="true"><i /><i /><i /></span>
               <span className="brand-copy">
-                <span className="brand-name"><strong>gestão</strong>benefícios</span>
+                <span className="brand-name"><strong>Gestão</strong> de Benefícios</span>
                 <small className="brand-signature">by Hirayama</small>
               </span>
             </a>
@@ -68,7 +68,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 Gestão Benefícios · Ecossistema Hirayama</span>
+          <span>© 2026 Gestão de Benefícios · Ecossistema Hirayama</span>
           <span>Conteúdo informativo. A recomendação depende de diagnóstico individual.</span>
           <a href="https://www.hirayamacorretora.com.br/politica-de-privacidade/" target="_blank" rel="noreferrer">Política de privacidade</a>
         </div>

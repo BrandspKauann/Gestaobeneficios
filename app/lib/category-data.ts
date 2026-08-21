@@ -45,7 +45,7 @@ export const categories: Category[] = [
     takeaways: [
       "Flexibilidade só gera valor quando a rede é útil para o público real.",
       "Cobertura, saldo e regras precisam ser compreendidos antes da adesão.",
-      "Uso recorrente e percepção de cuidado importam mais que o tamanho do catálogo.",
+      "Uso recorrente e percepção de cuidado importam mais do que o tamanho do catálogo.",
     ],
     howItWorks: [
       { title: "Definir a barreira de acesso", text: "Mapeie se o problema principal é preço, distância, tempo de espera, ausência de cobertura ou baixa adesão aos benefícios atuais." },
@@ -54,7 +54,7 @@ export const categories: Category[] = [
     ],
     criteria: [
       { dimension: "Acesso real", question: "A rede atende onde as pessoas vivem e trabalham?", evidence: "Cobertura por CEP, disponibilidade, tempo médio e canais digitais." },
-      { dimension: "Modelo financeiro", question: "O custo é previsível para empresa e colaborador?", evidence: "Mensalidade, saldo, coparticipação, taxas e regras de reajuste." },
+      { dimension: "Modelo financeiro", question: "O custo é previsível para a empresa e para o colaborador?", evidence: "Mensalidade, saldo, coparticipação, taxas e regras de reajuste." },
       { dimension: "Amplitude útil", question: "Os serviços respondem às demandas prioritárias do time?", evidence: "Consultas, exames, terapia, farmácia, atividade física e limites." },
       { dimension: "Experiência", question: "Usar o benefício é simples do início ao atendimento?", evidence: "Cadastro, busca, agendamento, suporte, reembolso e acessibilidade." },
       { dimension: "Governança", question: "A empresa recebe informação suficiente sem invadir privacidade?", evidence: "Relatórios agregados, proteção de dados, SLA e gestão de incidentes." },
@@ -113,9 +113,9 @@ export const categories: Category[] = [
       "Para a empresa, a proposta não é assumir o problema nem interferir em decisões particulares. É oferecer acesso qualificado, confidencial e previsível para reduzir a insegurança que costuma chegar ao RH sem que o RH tenha competência ou estrutura para atendê-la.",
     ],
     takeaways: [
-      "O RH encaminha para um canal especializado; não vira consultoria jurídica.",
+      "O RH encaminha a demanda para um canal especializado; não assume o papel de consultoria jurídica.",
       "Confidencialidade e independência precisam ser percebidas pelo colaborador.",
-      "Escopo claro vale mais que uma lista extensa de serviços pouco compreendidos.",
+      "Um escopo claro vale mais do que uma lista extensa de serviços pouco compreendidos.",
     ],
     howItWorks: [
       { title: "Acesso confidencial", text: "O colaborador procura diretamente o canal contratado, sem precisar revelar o tema pessoal à liderança ou ao RH." },
@@ -150,13 +150,13 @@ export const categories: Category[] = [
     ],
     disclaimer: "Conteúdo educativo sobre desenho de benefícios corporativos. Não constitui aconselhamento jurídico nem substitui a avaliação de profissionais habilitados.",
     signs: [
-      { title: "Demandas recorrentes", text: "RH recebe dúvidas sobre família, consumo, moradia ou dívidas que não sabe como encaminhar." },
+      { title: "Demandas recorrentes", text: "O RH recebe dúvidas sobre família, consumo, moradia ou dívidas e não sabe como encaminhá-las." },
       { title: "Estresse financeiro", text: "Conflitos e pendências jurídicas já aparecem em afastamentos, atrasos ou queda de concentração." },
       { title: "Cuidado incompleto", text: "A política fala em bem-estar, mas termina quando o problema exige orientação especializada." },
     ],
     profiles: [
       { label: "Pequena empresa", text: "Acesso a orientação sem transformar o RH em plantão para temas que fogem da sua função." },
-      { label: "Média empresa", text: "Benefício de percepção alta e implantação simples para complementar a jornada de cuidado." },
+      { label: "Média empresa", text: "Benefício de alto valor percebido e implantação simples para complementar a jornada de cuidado." },
       { label: "Grande empresa", text: "Canal escalável para públicos numerosos, com governança e comunicação bem definidas." },
     ],
     faqs: [
@@ -171,7 +171,7 @@ export const categories: Category[] = [
     shortTitle: "Saúde financeira",
     title: "Antecipação salarial",
     headline: "O salário é mensal. Os imprevistos não.",
-    description: "Antecipação salarial e acesso responsável a crédito podem aliviar emergências sem empurrar o colaborador para opções mais caras — desde que custo, educação e governança estejam claros.",
+    description: "Antecipação salarial e acesso responsável ao crédito podem aliviar emergências sem empurrar o colaborador para opções mais caras — desde que custos, educação e governança estejam claros.",
     metaDescription: "Avalie antecipação salarial via Pix, adiantamento e benefícios financeiros para apoiar colaboradores com responsabilidade e reduzir pressão sobre o RH.",
     image: "/images/categoria-saude-financeira-ai.webp",
     imageAlt: "Composição editorial sobre acesso responsável ao salário e saúde financeira",
@@ -185,7 +185,7 @@ export const categories: Category[] = [
     takeaways: [
       "Valor já trabalhado, adiantamento e crédito são produtos diferentes.",
       "Taxas e impacto no pagamento precisam aparecer antes da confirmação.",
-      "Governança evita que conveniência vire dependência ou retrabalho na folha.",
+      "A governança evita que a conveniência vire dependência ou retrabalho na folha.",
     ],
     howItWorks: [
       { title: "Elegibilidade e limite", text: "A política define quem pode usar, qual parcela está disponível e quais eventos bloqueiam ou ajustam o acesso." },
@@ -213,21 +213,21 @@ export const categories: Category[] = [
       "Combinar acesso com educação e canais de apoio financeiro.",
     ],
     metrics: [
-      { label: "Adoção consciente", text: "Usuários ativos acompanhados junto da compreensão das regras." },
+      { label: "Adoção consciente", text: "Percentual de usuários ativos, acompanhado do grau de compreensão das regras." },
       { label: "Recorrência", text: "Frequência de uso e concentração por faixas, sem exposição individual." },
       { label: "Custo médio", text: "Despesa total assumida pelo usuário ou empresa por operação." },
       { label: "Conciliação", text: "Transações processadas sem ajuste manual, estorno ou divergência." },
     ],
     disclaimer: "Conteúdo educativo para avaliação de benefícios. Não constitui aconselhamento financeiro, trabalhista ou jurídico; cada modelo exige revisão especializada.",
     signs: [
-      { title: "Pedidos informais", text: "RH e liderança recebem solicitações de adiantamento sem regra clara ou tratamento uniforme." },
+      { title: "Pedidos informais", text: "O RH e a liderança recebem solicitações de adiantamento sem regra clara ou tratamento uniforme." },
       { title: "Crédito caro", text: "O colaborador cobre emergências com cheque especial, rotativo ou empréstimos de curto prazo." },
       { title: "Turnover sensível", text: "Pressão financeira afeta produtividade, clima e permanência, sobretudo em faixas salariais menores." },
     ],
     profiles: [
       { label: "Pequena empresa", text: "Política simples que reduz exceções manuais e preserva previsibilidade do caixa." },
       { label: "Média empresa", text: "Automação de solicitações, critérios uniformes e comunicação de uso responsável." },
-      { label: "Grande empresa", text: "Escala, integração com folha, limites por público e dados para prevenção de uso nocivo." },
+      { label: "Grande empresa", text: "Escala, integração com a folha, limites por público e dados para prevenção de uso nocivo." },
     ],
     faqs: [
       { question: "Antecipação salarial é empréstimo?", answer: "Depende do modelo. A antecipação de valor já trabalhado é diferente de crédito consignado. Taxas, limites, elegibilidade e impacto na folha devem estar explícitos." },
@@ -242,7 +242,7 @@ export const categories: Category[] = [
     title: "Gestão integrada à folha",
     headline: "Reduza planilhas, conferências e horas perdidas entre benefícios e folha.",
     description: "Veja como integrar fornecedores, movimentações e conciliações para reduzir dispersão operacional e devolver tempo estratégico ao RH.",
-    metaDescription: "Diagnóstico de integração de benefícios com folha, dispersão de fornecedores, planilhas manuais e risco de erro para o RH.",
+    metaDescription: "Diagnóstico da integração de benefícios com a folha, da dispersão de fornecedores, das planilhas manuais e do risco de erro para o RH.",
     image: "/images/categoria-gestao-integrada-ai.webp",
     imageAlt: "Composição editorial sobre integração de fornecedores, dados e folha de pagamento",
     myth: "Ter muitos fornecedores significa ter uma política mais completa.",
@@ -253,14 +253,14 @@ export const categories: Category[] = [
       "O diagnóstico começa antes da tecnologia. É preciso visualizar o caminho completo de uma admissão, alteração ou desligamento, identificar pontos manuais e medir onde tempo e divergência se acumulam. Só então faz sentido decidir entre integrar, automatizar, consolidar ou redesenhar o processo.",
     ],
     takeaways: [
-      "Centralizar fornecedor não é o mesmo que integrar processo.",
+      "Centralizar fornecedores não é o mesmo que integrar processos.",
       "A fonte oficial de cada dado precisa estar definida e documentada.",
       "Automação saudável mantém exceções visíveis e uma trilha de auditoria.",
     ],
     howItWorks: [
       { title: "Mapear a jornada do dado", text: "Registre de onde vêm admissões, alterações e desligamentos, por quais arquivos passam e quem os confere." },
       { title: "Definir fontes e regras", text: "Estabeleça o sistema oficial, o dono de cada etapa, os prazos, as validações e o tratamento das exceções." },
-      { title: "Integrar e reconciliar", text: "Automatize os trechos repetitivos, monitore falhas e compare fornecedor, elegibilidade, cobrança e folha antes do fechamento." },
+      { title: "Integrar e reconciliar", text: "Automatize os trechos repetitivos, monitore falhas e compare os dados do fornecedor, da elegibilidade, da cobrança e da folha antes do fechamento." },
     ],
     criteria: [
       { dimension: "Arquitetura", question: "Qual sistema é a fonte oficial de cada informação?", evidence: "Mapa de sistemas, campos, integrações, frequência e responsáveis." },
@@ -301,7 +301,7 @@ export const categories: Category[] = [
     ],
     faqs: [
       { question: "Quantos fornecedores de benefícios uma empresa deveria ter?", answer: "Não existe um número universal. O limite saudável depende da capacidade de integração, governança, volume de movimentações e valor percebido em cada benefício." },
-      { question: "Integração com folha elimina toda conferência?", answer: "Não. Ela reduz digitação e divergência, mas regras, exceções e auditoria continuam necessárias. O ganho vem de concentrar conferência no que realmente exige decisão humana." },
+      { question: "A integração com a folha elimina toda conferência?", answer: "Não. Ela reduz digitação e divergência, mas regras, exceções e auditoria continuam necessárias. O ganho vem de concentrar a conferência no que realmente exige decisão humana." },
       { question: "Como calcular o custo das planilhas manuais?", answer: "Some horas de preparação, conferência e correção, custo do time envolvido e impacto médio dos erros. O diagnóstico deste site oferece uma estimativa inicial com premissas visíveis." },
     ],
   },

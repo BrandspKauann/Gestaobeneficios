@@ -59,7 +59,7 @@ export function CategoryTemplate({ category }: { category: Category }) {
       <section className="article-overview content-section" id="entenda">
         <div className="article-body">
           <p className="kicker">ENTENDA A CATEGORIA</p>
-          <h2>O que é {category.title.toLocaleLowerCase("pt-BR")} — e qual decisão existe por trás do nome.</h2>
+          <h2>O que é {category.title.toLocaleLowerCase("pt-BR")} — e qual decisão está por trás desse nome.</h2>
           {category.summary.slice(0, 1).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           <p className="article-disclaimer">{category.disclaimer}</p>
         </div>
@@ -103,11 +103,11 @@ export function CategoryTemplate({ category }: { category: Category }) {
 
       <section className="criteria-section content-section" id="criterios">
         <div className="section-heading split-heading">
-          <div><p className="kicker">CRITÉRIOS DE DECISÃO</p><h2>Compare o que realmente afeta custo, uso e resultado.</h2></div>
+          <div><p className="kicker">CRITÉRIOS DE DECISÃO</p><h2>Compare o que realmente afeta os custos, o uso e os resultados.</h2></div>
           <p>Use as mesmas perguntas com todos os fornecedores para revelar custos escondidos e tornar as diferenças realmente comparáveis.</p>
         </div>
         <div className="criteria-table" role="table" aria-label={`Critérios para avaliar ${category.title}`}>
-          <div className="criteria-row criteria-head" role="row"><span role="columnheader">Dimensão</span><span role="columnheader">Pergunta de auditoria</span><span role="columnheader">Evidência para pedir</span></div>
+          <div className="criteria-row criteria-head" role="row"><span role="columnheader">Dimensão</span><span role="columnheader">Pergunta de auditoria</span><span role="columnheader">Evidências a solicitar</span></div>
           {category.criteria.slice(0, 4).map((criterion) => <div className="criteria-row" role="row" key={criterion.dimension}><b role="cell">{criterion.dimension}</b><p role="cell">{criterion.question}</p><small role="cell">{criterion.evidence}</small></div>)}
         </div>
       </section>

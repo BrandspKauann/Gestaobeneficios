@@ -11,7 +11,7 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow"><span /> Diagnóstico gratuito para o RH</p>
           <h1>Reduza o custo oculto da sua gestão de benefícios. <em>Veja onde agir primeiro.</em></h1>
-          <p className="hero-lead">Descubra onde o RH perde tempo, dinheiro e segurança. Em menos de três minutos, transforme gargalos operacionais em uma prioridade clara para agir.</p>
+          <p className="hero-lead">Descubra onde o RH perde tempo, dinheiro e segurança. Em menos de três minutos, identifique uma prioridade clara de ação a partir dos gargalos operacionais.</p>
           <div className="hero-actions"><a className="button" href="/diagnostico">Quero meu diagnóstico gratuito</a><a className="text-link" href="/sobre-o-metodo"><i>▶</i> Ver como funciona</a></div>
           <div className="hero-proof"><span className="mini-seal">H</span><p><strong>Resultado inicial em menos de 3 minutos</strong><br />Sem compromisso e sem indicação automática.</p></div>
         </div>
@@ -38,13 +38,13 @@ export default function Home() {
         </figure>
         <div className="audit-grid">
           <article><span>01</span><h3>Horas que não voltam</h3><p>Cadastros repetidos, portais diferentes e conferências que recomeçam todos os meses.</p></article>
-          <article><span>02</span><h3>Erros que custam caro</h3><p>Dados desencontrados entre fornecedor, elegibilidade e folha viram correção depois do fechamento.</p></article>
+          <article><span>02</span><h3>Erros que custam caro</h3><p>Dados desencontrados entre fornecedor, elegibilidade e folha viram correções depois do fechamento.</p></article>
           <article><span>03</span><h3>Benefícios sem valor percebido</h3><p>Mais itens no pacote não geram resultado quando o colaborador não entende ou não consegue usar.</p></article>
         </div>
       </section>
 
       <section className="method-band">
-        <div className="method-copy"><p className="kicker">DA DOR AO PLANO DE AÇÃO</p><h2>Descubra onde agir antes de investir em mais uma solução.</h2><p>Em três movimentos, transformamos a rotina do RH em uma prioridade clara, mensurável e pronta para decisão.</p><a className="text-link dark-link" href="/sobre-o-metodo">Ver o método completo</a></div>
+        <div className="method-copy"><p className="kicker">DA DOR AO PLANO DE AÇÃO</p><h2>Descubra onde agir antes de investir em mais uma solução.</h2><p>Em três movimentos, analisamos a rotina do RH e identificamos uma prioridade clara e mensurável, pronta para orientar a decisão.</p><a className="text-link dark-link" href="/sobre-o-metodo">Ver o método completo</a></div>
         <div className="method-steps"><article><span>1</span><div><h3>Mapear</h3><p>Encontre gargalos em fornecedores, fluxos, regras e integrações.</p></div></article><article><span>2</span><div><h3>Mensurar</h3><p>Veja o impacto em horas, custo oculto, risco e valor percebido.</p></div></article><article><span>3</span><div><h3>Priorizar</h3><p>Saia com a frente que pode gerar mais resultado agora.</p></div></article></div>
       </section>
 
@@ -54,7 +54,7 @@ export default function Home() {
       </section>
 
       <section className="home-diagnostic">
-        <div><p className="eyebrow"><span /> Diagnóstico gratuito e imediato</p><h2>Veja quanto tempo e dinheiro sua operação pode estar perdendo.</h2><p>Responda seis perguntas e receba uma estimativa inicial com os números que ajudam o RH a defender a próxima decisão.</p><ul><li>Custo oculto estimado</li><li>Risco de divergência</li><li>Próximo passo recomendado</li></ul><a className="button" href="/diagnostico">Calcular meu resultado agora</a></div>
+        <div><p className="eyebrow"><span /> Diagnóstico gratuito e imediato</p><h2>Veja quanto tempo e dinheiro sua operação pode estar perdendo.</h2><p>Responda seis perguntas e receba uma estimativa inicial com os números que ajudam o RH a embasar a próxima decisão.</p><ul><li>Custo oculto estimado</li><li>Risco de divergência</li><li>Próximo passo recomendado</li></ul><a className="button" href="/diagnostico">Calcular meu resultado agora</a></div>
         <aside><span className="mini-label">EXEMPLO DE RESULTADO</span><div className="big-score"><strong>42</strong><span>/100</span></div><p>Seu RH pode estar dedicando <b>32 horas por mês</b> a uma rotina que deveria estar integrada.</p><div className="mini-bars"><i style={{width:"74%"}}/><i style={{width:"58%"}}/><i style={{width:"86%"}}/></div><small>As estimativas mudam conforme suas respostas.</small></aside>
       </section>
 
