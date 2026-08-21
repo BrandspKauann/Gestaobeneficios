@@ -120,3 +120,8 @@ test("ships favicon files through the standard app metadata convention", async (
   assert.ok(icon.byteLength > 5000);
   assert.ok(appleIcon.byteLength > 1000);
 });
+
+test("keeps the brand wording compact and readable", async () => {
+  const styles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  assert.match(styles, /\.brand-name\s*\{[^}]*word-spacing:\s*-\.08em/);
+});

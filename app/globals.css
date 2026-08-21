@@ -22,7 +22,7 @@ a { color: inherit; text-decoration: none; }
 .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 20px; letter-spacing: -.04em; }
 .brand strong { font-weight: 800; }
 .brand-copy { display: grid; gap: 4px; line-height: .85; }
-.brand-name { white-space: nowrap; }
+.brand-name { white-space: nowrap; word-spacing: -.08em; }
 .brand-signature { color: rgba(16,63,59,.52); font-size: 7px; font-weight: 750; letter-spacing: .2em; line-height: 1; text-transform: uppercase; }
 .brand-mark { position: relative; width: 34px; height: 34px; display: inline-flex; align-items: end; gap: 3px; padding: 6px; background: var(--teal); border-radius: 50% 50% 46% 54% / 56% 45% 55% 44%; transform: rotate(-7deg); }
 .brand-mark i { width: 5px; display: block; border-radius: 3px; background: var(--teal-light); }
