@@ -127,3 +127,14 @@ test("keeps the brand wording compact and readable", async () => {
   const styles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
   assert.match(styles, /\.brand-name\s*\{[^}]*word-spacing:\s*-\.08em/);
 });
+
+test("installs Vercel Web Analytics in the global layout", async () => {
+  const [layout, packageJson] = await Promise.all([
+    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../package.json", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(layout, /@vercel\/analytics\/next/);
+  assert.match(layout, /<Analytics \/>/);
+  assert.match(packageJson, /"@vercel\/analytics"/);
+});
