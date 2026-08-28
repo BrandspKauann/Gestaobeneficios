@@ -43,6 +43,8 @@ test("server-renders the diagnostic-first homepage", async () => {
   assert.match(html, /rel="icon" href="\/icon\.png\?[^\"]+"/);
   assert.match(html, /rel="apple-touch-icon" href="\/apple-icon\.png\?[^\"]+"/);
   assert.match(html, /site\.webmanifest/);
+  assert.match(html, /googletagmanager\.com\/gtag\/js\?id=G-5LEWT2J6YK/);
+  assert.match(html, /gtag\('config', 'G-5LEWT2J6YK'\)/);
 });
 
 test("renders unique category metadata and FAQ schema", async () => {
