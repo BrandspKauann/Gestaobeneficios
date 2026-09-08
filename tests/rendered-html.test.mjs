@@ -138,3 +138,12 @@ test("installs Vercel Web Analytics in the global layout", async () => {
   assert.match(layout, /<Analytics \/>/);
   assert.match(packageJson, /"@vercel\/analytics"/);
 });
+
+test("installs Google Tag Manager in the head and body fallback", async () => {
+  const response = await render("/");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+
+  assert.match(html, /<head>[\s\S]*GTM-T636X4P7[\s\S]*googletagmanager\.com\/gtag\/js/);
+  assert.match(html, /<body[^>]*><noscript><iframe[^>]*googletagmanager\.com\/ns\.html\?id=GTM-T636X4P7/);
+});
