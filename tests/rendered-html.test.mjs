@@ -43,8 +43,7 @@ test("server-renders the diagnostic-first homepage", async () => {
   assert.match(html, /rel="icon" href="\/icon\.png\?[^\"]+"/);
   assert.match(html, /rel="apple-touch-icon" href="\/apple-icon\.png\?[^\"]+"/);
   assert.match(html, /site\.webmanifest/);
-  assert.match(html, /googletagmanager\.com\/gtag\/js\?id=G-5LEWT2J6YK/);
-  assert.match(html, /gtag\('config', 'G-5LEWT2J6YK'\)/);
+  assert.doesNotMatch(html, /G-5LEWT2J6YK|googletagmanager\.com\/gtag\/js|gtag\('config'/);
 });
 
 test("renders unique category metadata and FAQ schema", async () => {
@@ -144,6 +143,7 @@ test("installs Google Tag Manager in the head and body fallback", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
 
-  assert.match(html, /<head>[\s\S]*GTM-T636X4P7[\s\S]*googletagmanager\.com\/gtag\/js/);
+  assert.match(html, /<head>[\s\S]*GTM-T636X4P7[\s\S]*<\/head>/);
   assert.match(html, /<body[^>]*><noscript><iframe[^>]*googletagmanager\.com\/ns\.html\?id=GTM-T636X4P7/);
+  assert.doesNotMatch(html, /G-5LEWT2J6YK|googletagmanager\.com\/gtag\/js|gtag\('config'/);
 });
