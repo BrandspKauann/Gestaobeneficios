@@ -6,7 +6,7 @@ import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 const lora = Lora({ variable: "--font-lora", subsets: ["latin"] });
-const googleAnalyticsId = "G-5LEWT2J6YK";
+const googleAnalyticsId = "G-2KSF7X3CDQ";
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
