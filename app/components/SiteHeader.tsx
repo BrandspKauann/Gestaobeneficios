@@ -10,6 +10,7 @@ export function SiteHeader() {
       </a>
       <nav className="main-nav" aria-label="Navegação principal">
         <a href="/categorias">Categorias</a>
+        <a href="/artigos">Biblioteca</a>
         <a href="/sobre-o-metodo">Nosso método</a>
         <a href="/para-quem-e">Para quem é</a>
       </nav>
@@ -18,6 +19,7 @@ export function SiteHeader() {
         <summary aria-label="Abrir menu"><span /><span /><span /></summary>
         <nav>
           <a href="/categorias">Categorias</a>
+          <a href="/artigos">Biblioteca</a>
           <a href="/sobre-o-metodo">Nosso método</a>
           <a href="/para-quem-e">Para quem é</a>
           <a href="/diagnostico">Diagnóstico gratuito</a>
