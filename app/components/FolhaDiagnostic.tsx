@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
+import { formspreeEndpoint } from "../lib/formspree";
 
 type Answers = Record<string, string>;
 
@@ -80,14 +81,16 @@ export function FolhaDiagnostic() {
     setSending(true);
     setError("");
     try {
-      const response = await fetch("/api/diagnostico-folha", {
+      const data = new FormData(event.currentTarget);
+      Object.entries(answers).forEach(([key, value]) => data.set(key, value));
+      data.set("_subject", "Novo diagnóstico de folha recebido");
+      data.set("tipo_formulario", "Diagnóstico de folha");
+      data.set("pagina", window.location.pathname);
+      new URLSearchParams(window.location.search).forEach((value, key) => data.set(key.startsWith("utm_") ? key : `utm_${key}`, value));
+      const response = await fetch(formspreeEndpoint, {
         method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          answers,
-          utm: Object.fromEntries(new URLSearchParams(window.location.search).entries()),
-          pagePath: window.location.pathname,
-        }),
+        headers: { Accept: "application/json" },
+        body: data,
       });
       if (!response.ok) throw new Error("request_failed");
       emitEvent("diagnostic_complete", { form_id: "diagnostico_folha" });
@@ -112,11 +115,11 @@ export function FolhaDiagnostic() {
       {currentQuestion.options ? <div className="folha-options">{currentQuestion.options.map((option) => <button type="button" className={answers[currentQuestion.id] === option ? "selected" : ""} key={option} onClick={() => updateAnswer(currentQuestion.id, option)}>{option}</button>)}</div> : <input aria-label={currentQuestion.label} value={answers[currentQuestion.id] || ""} onChange={(event) => updateAnswer(currentQuestion.id, event.target.value)} placeholder={currentQuestion.placeholder} />}
       {error && <p className="folha-error">{error}</p>}
       <div className="folha-actions"><button type="button" className="text-button" onClick={back} disabled={step === 0}>Voltar</button><button type="button" className="button" onClick={next}>Continuar</button></div>
-    </div> : <form onSubmit={submit} className="folha-contact">
+    </div> : <form action={formspreeEndpoint} method="POST" onSubmit={submit} className="folha-contact">
       <h2>Para onde enviamos o retorno?</h2><p>Usamos estes dados somente para responder ao seu diagnóstico.</p>
-      <div className="folha-contact-grid">{contactFields.map((field) => <label key={field.id}>{field.label}<input type={field.type} required={field.required} value={answers[field.id] || ""} onChange={(event) => updateAnswer(field.id, event.target.value)} /></label>)}</div>
-      <fieldset><legend>Como prefere receber o retorno?</legend><label><input type="radio" name="return" value="E-mail" checked={answers.return_preference === "E-mail"} onChange={(event) => updateAnswer("return_preference", event.target.value)} /> Por e-mail</label><label><input type="radio" name="return" value="Conversa de 20 minutos" checked={answers.return_preference === "Conversa de 20 minutos"} onChange={(event) => updateAnswer("return_preference", event.target.value)} /> Em uma conversa de 20 minutos</label></fieldset>
-      <label className="lgpd"><input type="checkbox" checked={answers.lgpd === "accepted"} onChange={(event) => updateAnswer("lgpd", event.target.checked ? "accepted" : "")} /> Autorizo o tratamento dos meus dados para receber o retorno deste diagnóstico, conforme a política de privacidade.</label>
+      <div className="folha-contact-grid">{contactFields.map((field) => <label key={field.id}>{field.label}<input name={field.id} type={field.type} required={field.required} value={answers[field.id] || ""} onChange={(event) => updateAnswer(field.id, event.target.value)} /></label>)}</div>
+      <fieldset><legend>Como prefere receber o retorno?</legend><label><input type="radio" name="return_preference" value="E-mail" checked={answers.return_preference === "E-mail"} onChange={(event) => updateAnswer("return_preference", event.target.value)} /> Por e-mail</label><label><input type="radio" name="return_preference" value="Conversa de 20 minutos" checked={answers.return_preference === "Conversa de 20 minutos"} onChange={(event) => updateAnswer("return_preference", event.target.value)} /> Em uma conversa de 20 minutos</label></fieldset>
+      <label className="lgpd"><input type="checkbox" name="lgpd" value="accepted" checked={answers.lgpd === "accepted"} onChange={(event) => updateAnswer("lgpd", event.target.checked ? "accepted" : "")} /> Autorizo o tratamento dos meus dados para receber o retorno deste diagnóstico, conforme a política de privacidade.</label>
       {error && <p className="folha-error">{error}</p>}
       <div className="folha-actions"><button type="button" className="text-button" onClick={back}>Voltar</button><button className="button" disabled={sending}>{sending ? "Enviando…" : "Enviar diagnóstico"}</button></div>
     </form>}

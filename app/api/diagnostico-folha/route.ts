@@ -1,5 +1,6 @@
 import { createSign } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
+import { formspreeEndpoint } from "../../lib/formspree";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -82,9 +83,7 @@ async function appendToSheet(submission: Submission) {
 }
 
 async function sendToFormspree(submission: Submission) {
-  const endpoint = process.env.FOLHA_FORMSPREE_ENDPOINT;
-  if (!endpoint) throw new Error("Formulário de e-mail do diagnóstico não configurado.");
-  const response = await fetch(endpoint, {
+  const response = await fetch(formspreeEndpoint, {
     method: "POST",
     headers: { Accept: "application/json", "Content-Type": "application/json" },
     body: JSON.stringify({

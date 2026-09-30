@@ -138,3 +138,19 @@ test("installs Vercel Web Analytics in the global layout", async () => {
   assert.match(layout, /<Analytics \/>/);
   assert.match(packageJson, /"@vercel\/analytics"/);
 });
+
+test("connects every lead form to the current Formspree endpoint", async () => {
+  const [endpoint, diagnostic, folha, folhaApi] = await Promise.all([
+    readFile(new URL("../app/lib/formspree.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/DiagnosticTool.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/FolhaDiagnostic.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/api/diagnostico-folha/route.ts", import.meta.url), "utf8"),
+  ]);
+  const source = [endpoint, diagnostic, folha, folhaApi].join("\n");
+
+  assert.match(endpoint, /https:\/\/formspree\.io\/f\/xeaodraa/);
+  assert.match(diagnostic, /action=\{formspreeEndpoint\} method="POST"/);
+  assert.match(folha, /action=\{formspreeEndpoint\} method="POST"/);
+  assert.match(folha, /name=\{field\.id\}/);
+  assert.doesNotMatch(source, /mbdppnkr|FOLHA_FORMSPREE_ENDPOINT|\/api\/diagnostico-folha/);
+});

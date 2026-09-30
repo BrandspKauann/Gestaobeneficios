@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
+import { formspreeEndpoint } from "../lib/formspree";
 
 type Answers = {
   employees: number;
@@ -45,9 +46,12 @@ export function DiagnosticTool() {
   async function submitLead(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); setSending(true);
     const data = new FormData(event.currentTarget);
-    data.append("diagnostico", `Índice ${result.score}/100; ${result.monthlyHours}h/mês; risco ${result.risk}%; prioridade ${result.route.label}`);
+    data.set("_subject", "Novo diagnóstico de gestão de benefícios");
+    data.set("tipo_formulario", "Diagnóstico geral");
+    data.set("pagina", window.location.pathname);
+    data.set("diagnostico", `Índice ${result.score}/100; ${result.monthlyHours}h/mês; risco ${result.risk}%; prioridade ${result.route.label}`);
     try {
-      const response = await fetch("https://formspree.io/f/mbdppnkr", { method: "POST", body: data, headers: { Accept: "application/json" } });
+      const response = await fetch(formspreeEndpoint, { method: "POST", body: data, headers: { Accept: "application/json" } });
       if (!response.ok) throw new Error("submit");
       setSent(true);
     } catch {
@@ -117,7 +121,7 @@ export function DiagnosticTool() {
         <div className="assumptions"><b>Premissas visíveis</b><p>4,33 semanas/mês · custo-hora de RH de R$ 72 · risco ponderado por fornecedores, nível de integração e frequência de ajustes. Ajuste estas premissas em uma conversa de diagnóstico.</p></div>
         <div className="lead-panel">
           {!sent ? <><div><span>ANÁLISE PERSONALIZADA</span><h3>Quer transformar este resultado em um plano de ação?</h3><p>Receba uma leitura humana do seu cenário, com foco no que pode gerar mais impacto para a empresa.</p></div>
-          <form onSubmit={submitLead}><input name="nome" required placeholder="Seu nome" aria-label="Seu nome" /><input name="empresa" required placeholder="Empresa" aria-label="Empresa" /><input name="email" type="email" required placeholder="E-mail corporativo" aria-label="E-mail corporativo" /><button className="button" disabled={sending}>{sending ? "Enviando..." : "Quero uma análise gratuita"}</button></form></> :
+          <form action={formspreeEndpoint} method="POST" onSubmit={submitLead}><input name="nome" required placeholder="Seu nome" aria-label="Seu nome" /><input name="empresa" required placeholder="Empresa" aria-label="Empresa" /><input name="email" type="email" required placeholder="E-mail corporativo" aria-label="E-mail corporativo" /><button className="button" disabled={sending}>{sending ? "Enviando..." : "Quero uma análise gratuita"}</button></form></> :
           <div className="success-message"><span>✓</span><h3>Recebemos seu diagnóstico.</h3><p>No próximo contato, conversaremos sobre suas prioridades e os próximos passos mais adequados.</p></div>}
         </div>
       </div>}
