@@ -13,8 +13,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "www.gestaobeneficios.com.br";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
   const requestBase = new URL(`${protocol}://${host}`);
-  const title = "Gestão de Benefícios | Reduza custos e retrabalho no RH";
-  const description = "Descubra onde sua empresa perde tempo e dinheiro com benefícios e receba uma prioridade clara para agir em menos de três minutos.";
+  const title = "Gestão de Benefícios Corporativos | Reduza custos no RH";
+  const description = "Descubra onde sua empresa perde tempo e dinheiro com benefícios. Faça o diagnóstico e receba prioridades para melhorar a operação do RH.";
 
   return {
     metadataBase: requestBase,

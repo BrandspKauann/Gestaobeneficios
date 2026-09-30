@@ -19,7 +19,7 @@ test("server-renders the diagnostic-first homepage", async () => {
   const html = await response.text();
   assert.match(html, /Reduza o custo oculto/);
   assert.match(html, /Quero meu diagnóstico gratuito/);
-  assert.match(html, /Gestão de Benefícios \| Reduza custos e retrabalho no RH/);
+  assert.match(html, /Gestão de Benefícios Corporativos \| Reduza custos no RH/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Starter Project/);
   assert.doesNotMatch(html, /↗|→|↑|←/);
   assert.doesNotMatch(html, /↻|≠|⌁/);
