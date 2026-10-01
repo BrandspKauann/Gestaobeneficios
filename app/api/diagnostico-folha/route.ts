@@ -6,10 +6,6 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const sheetId = process.env.FOLHA_SHEET_ID ?? "1MlzZOiqIcOCzTg-biUqJt-TYItNz85Hi37Jt00CtIDo";
-const recipientEmails = [
-  "ewerton@hirayamacorretora.com.br",
-  "hirayama.ewerton@gmail.com",
-];
 
 type ServiceAccount = { client_email: string; private_key: string };
 type Submission = {
@@ -88,11 +84,10 @@ async function sendToFormspree(submission: Submission) {
     headers: { Accept: "application/json", "Content-Type": "application/json" },
     body: JSON.stringify({
       _subject: "Novo diagnóstico de folha recebido",
-      recipients: recipientEmails.join(", "),
-      classification: submission.classification,
-      attribution: submission.attribution,
-      answers: submission.answers,
-      contact: submission.contact,
+      tipo_formulario: "Diagnóstico de folha",
+      classificacao_interna: submission.classification,
+      ...submission.attribution,
+      ...submission.answers,
     }),
   });
   if (!response.ok) throw new Error("Não foi possível encaminhar o diagnóstico por e-mail.");
@@ -110,7 +105,7 @@ function validate(payload: unknown): Submission | null {
   const answers = Object.fromEntries(Object.entries(candidate.answers)
     .filter(([key, value]) => typeof key === "string" && typeof value === "string")
     .map(([key, value]) => [key, String(value).slice(0, 1000)]));
-  if (!answers.name || !answers.role || !answers.company || !answers.email || answers.lgpd !== "accepted") return null;
+  if (!answers.name || !answers.role || !answers.company || !answers.email || !answers.return_preference || answers.lgpd !== "accepted") return null;
   const attribution = Object.fromEntries(Object.entries(candidate.utm)
     .filter(([key, value]) => typeof key === "string" && typeof value === "string")
     .map(([key, value]) => [key, String(value).slice(0, 300)]));
@@ -123,26 +118,49 @@ function validate(payload: unknown): Submission | null {
 }
 
 // Resultado interno: não é devolvido à pessoa que preenche o diagnóstico.
+function points(values: Record<string, number>, answer: string) {
+  return values[answer] ?? 0;
+}
+
 function classify(answers: Record<string, string>) {
-  if (answers.major_implementation !== "Não" || answers.average_salary === "Acima de R$ 8.000") {
-    return "Fique e renegocie";
+  if (answers.employees === "Até 30" || answers.average_salary === "Acima de 5 salários mínimos") return "Fique onde está";
+  if (answers.major_implementation === "Sim") return "Fique por agora e revise em 6 meses";
+  if (answers.credit_position === "Preferimos evitar qualquer oferta") return "Revisão manual";
+
+  const valueScore =
+    points({ "31 a 150": 1, "151 a 500": 3, "501 a 1.500": 4, "Acima de 1.500": 4 }, answers.employees) +
+    points({ "Até 2 salários mínimos": 3, "De 2 a 3 salários mínimos": 2, "De 3 a 5 salários mínimos": 1 }, answers.average_salary) +
+    points({ "Nada": 3, "Somente isenção de tarifas": 2, "Algum pagamento em dinheiro": 0, "Não sei informar": 2 }, answers.current_return) +
+    points({ "Nunca ou não sei": 2, "Há mais de 3 anos": 1, "Nos últimos 3 anos": 0 }, answers.last_negotiation);
+  const changeCost =
+    points({ "Sistema de folha, como o Domínio": 0, "Contabilidade externa": 1, "Planilha": 1, "Sistema próprio ou ERP": 2 }, answers.payroll_file) +
+    points({ "Nunca": 1, "Sim, foi tranquilo": 0, "Sim, foi difícil": 2 }, answers.previous_change) +
+    points({ "Um": 0, "De 2 a 5": 1, "Mais de 5": 2 }, answers.cnpjs);
+  const operationalPressure =
+    points({ "Raramente": 0, "Algumas vezes por mês": 1, "Toda semana": 2, "Todos os dias": 3 }, answers.rh_demand) +
+    points({ "Raramente": 0, "Às vezes": 1, "Com frequência": 2 }, answers.receipts) +
+    points({ "Neutra": 0, "Gostaríamos de uma opção com limites responsáveis": 1 }, answers.credit_position);
+
+  if (valueScore >= 8 && operationalPressure >= 3 && changeCost <= 3) {
+    return answers.current_return === "Algum pagamento em dinheiro" ? "Vale estudar uma mudança" : "A mudança faz sentido agora";
   }
-  if (
-    answers.current_return === "Abaixo do esperado" ||
-    answers.last_negotiation === "Há mais de 2 anos" ||
-    answers.last_negotiation === "Nunca houve uma revisão formal"
-  ) {
-    return "Vale estudar uma mudança";
-  }
-  return "A mudança faz sentido agora";
+  if (valueScore >= 5) return "Vale estudar uma mudança";
+  return "Fique e renegocie";
 }
 
 export async function POST(request: NextRequest) {
   try {
     const submission = validate(await request.json());
     if (!submission) return NextResponse.json({ error: "Dados do diagnóstico incompletos." }, { status: 400 });
-    await Promise.all([appendToSheet(submission), sendToFormspree(submission)]);
-    return NextResponse.json({ ok: true });
+    await sendToFormspree(submission);
+    let sheetSaved = false;
+    try {
+      await appendToSheet(submission);
+      sheetSaved = true;
+    } catch (sheetError) {
+      console.error("Não foi possível gravar o diagnóstico na planilha.", sheetError);
+    }
+    return NextResponse.json({ ok: true, sheetSaved });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Não foi possível enviar o diagnóstico.";
     return NextResponse.json({ error: message }, { status: 503 });

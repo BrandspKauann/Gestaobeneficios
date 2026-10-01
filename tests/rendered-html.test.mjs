@@ -96,6 +96,19 @@ test("renders the interactive diagnostic route", async () => {
   assert.match(html, /Quantos colaboradores a empresa tem/);
 });
 
+test("renders the complete payroll diagnostic landing page", async () => {
+  const response = await render("/diagnostico-folha");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Quanto vale a folha da sua empresa\?/);
+  assert.match(html, /O diagnóstico não parte da ideia de que mudar é sempre melhor/);
+  assert.match(html, /Sou remunerado pelas instituições financeiras/);
+  assert.match(html, /ewerton-hirayama\.jpg/);
+  assert.match(html, /Pergunta 1 de 13/);
+  assert.match(html, /FAQPage/);
+  assert.doesNotMatch(html, /Porto Seguro|Santander|Itaú|Bradesco|Nubank/);
+});
+
 test("uses full-document links for reliable cross-route navigation", async () => {
   const files = [
     "../app/page.tsx",
@@ -151,6 +164,8 @@ test("connects every lead form to the current Formspree endpoint", async () => {
   assert.match(endpoint, /https:\/\/formspree\.io\/f\/xeaodraa/);
   assert.match(diagnostic, /action=\{formspreeEndpoint\} method="POST"/);
   assert.match(folha, /action=\{formspreeEndpoint\} method="POST"/);
+  assert.match(folha, /fetch\("\/api\/diagnostico-folha"/);
   assert.match(folha, /name=\{field\.id\}/);
-  assert.doesNotMatch(source, /mbdppnkr|FOLHA_FORMSPREE_ENDPOINT|\/api\/diagnostico-folha/);
+  assert.match(folhaApi, /fetch\(formspreeEndpoint/);
+  assert.doesNotMatch(source, /mbdppnkr|FOLHA_FORMSPREE_ENDPOINT/);
 });
