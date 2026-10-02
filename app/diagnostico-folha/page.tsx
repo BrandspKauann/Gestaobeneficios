@@ -103,6 +103,11 @@ export default function DiagnosticoFolhaPage() {
         </aside>
       </section>
 
+      <section className="folha-final">
+        <div className="folha-final-heading"><p className="folha-kicker">Comece agora</p><h2>Leva 4 minutos. A decisão continua sendo sua.</h2><p>Responda no seu ritmo. Seus dados de contato aparecem somente no final.</p></div>
+        <FolhaDiagnostic />
+      </section>
+
       <section className="folha-section folha-problem">
         <div className="folha-inner">
           <div className="folha-section-heading"><p className="folha-kicker">O problema</p><h2>Uma decisão grande, quase sempre tomada no automático.</h2></div>
@@ -162,7 +167,6 @@ export default function DiagnosticoFolhaPage() {
 
       <section className="folha-final">
         <div className="folha-final-heading"><p className="folha-kicker">Comece agora</p><h2>Leva 4 minutos. A decisão continua sendo sua.</h2><p>Responda no seu ritmo. Seus dados de contato aparecem somente no final.</p><a className="button folha-secondary-button" href="#iniciar-diagnostico" data-folha-start="final">Começar o diagnóstico</a></div>
-        <FolhaDiagnostic />
       </section>
 
       <SiteFooter />
