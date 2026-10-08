@@ -109,6 +109,25 @@ test("renders the complete payroll diagnostic landing page", async () => {
   assert.doesNotMatch(html, /Porto Seguro|Santander|Itaú|Bradesco|Nubank/);
 });
 
+test("renders the transferred payroll page with destination branding and SEO", async () => {
+  const response = await render("/pagamento-de-folha");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Pagamento de folha\./);
+  assert.match(html, /Gestão de Benefícios by Hirayama/);
+  assert.match(html, /https:\/\/www\.gestaobeneficios\.com\.br\/pagamento-de-folha/);
+  assert.match(html, /BreadcrumbList/);
+  assert.match(html, /FAQPage/);
+  assert.match(html, /images\/pagamento-folha-rh\.webp/);
+  assert.match(html, /formspree.io\/f\/xeaodraa/);
+  assert.match(html, /name="solution_kind" value="Pagamento de folha"/);
+  assert.match(html, /\/diagnostico-folha/);
+  assert.doesNotMatch(html, /somapay|mbdppnkr|GTM-T636X4P7|G-G9HSX541BN/i);
+  assert.match(html, /Não há retorno garantido/);
+  const sitemap = await render("/sitemap.xml");
+  assert.match(await sitemap.text(), /www\.gestaobeneficios\.com\.br\/pagamento-de-folha/);
+});
+
 test("uses full-document links for reliable cross-route navigation", async () => {
   const files = [
     "../app/page.tsx",

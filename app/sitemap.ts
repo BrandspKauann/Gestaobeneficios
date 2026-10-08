@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: siteUrl, lastModified, changeFrequency: "weekly", priority: 1 },
     { url: `${siteUrl}/diagnostico`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${siteUrl}/diagnostico-folha`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${siteUrl}/pagamento-de-folha`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/categorias`, lastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteUrl}/artigos`, lastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteUrl}/para-quem-e`, lastModified, changeFrequency: "monthly", priority: 0.7 },

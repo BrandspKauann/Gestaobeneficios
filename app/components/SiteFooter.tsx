@@ -43,7 +43,7 @@ export function SiteFooter() {
             <p>Mais clareza para reduzir<br />custo, risco e retrabalho.</p>
           </div>
           <div className="footer-links">
-            <div><b>Explore</b><a href="/categorias">Categorias</a><a href="/diagnostico">Diagnóstico</a><a href="/para-quem-e">Para quem é</a></div>
+            <div><b>Explore</b><a href="/categorias">Categorias</a><a href="/diagnostico">Diagnóstico</a><a href="/pagamento-de-folha">Pagamento de folha</a><a href="/para-quem-e">Para quem é</a></div>
             <div><b>Método</b><a href="/sobre-o-metodo">Como analisamos</a><a href="https://wa.link/3gwhbl" target="_blank" rel="noreferrer">Falar com especialista</a></div>
           </div>
           <div className="footer-contact">
