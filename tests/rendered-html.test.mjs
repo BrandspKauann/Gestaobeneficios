@@ -96,6 +96,21 @@ test("renders the interactive diagnostic route", async () => {
   assert.match(html, /Quantos colaboradores a empresa tem/);
 });
 
+test("renders the targeted benefits comparison with unique SEO and a specialized analysis link", async () => {
+  const response = await render("/artigos/beneficio-flexivel-ou-va-vr");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.equal((html.match(/<title>/g) ?? []).length, 1);
+  assert.equal((html.match(/<h1[ >]/g) ?? []).length, 1);
+  assert.equal((html.match(/name="description"/g) ?? []).length, 1);
+  assert.match(html, /<title>Benefícios flexíveis ou VA\/VR\? Compare antes de decidir<\/title>/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/www.gestaobeneficios.com.br\/artigos\/beneficio-flexivel-ou-va-vr"/);
+  assert.match(html, /Compare benefícios flexíveis e VA\/VR pelo perfil dos colaboradores/);
+  assert.match(html, /<th scope="row">Implantação e suporte<\/th>/);
+  assert.match(html, /https:\/\/www.consultoriavr.com.br\/#diagnostico/);
+  assert.doesNotMatch(html, /name="robots" content="noindex/);
+});
+
 test("renders the complete payroll diagnostic landing page", async () => {
   const response = await render("/diagnostico-folha");
   assert.equal(response.status, 200);

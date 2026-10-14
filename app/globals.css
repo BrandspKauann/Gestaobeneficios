@@ -485,3 +485,13 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   .folha-page * { scroll-behavior: auto !important; transition-duration: 0s !important; }
 }
+
+.benefit-comparison-scroll { overflow-x: auto; max-width: 100%; margin: 28px 0; border: 1px solid rgba(16,63,59,.16); border-radius: 12px; }
+.benefit-comparison-table { width: 100%; min-width: 620px; border-collapse: collapse; text-align: left; font-size: 14px; line-height: 1.6; }
+.benefit-comparison-table caption { padding: 18px; text-align: left; font-weight: 650; color: var(--teal); }
+.benefit-comparison-table th, .benefit-comparison-table td { padding: 18px; border-top: 1px solid rgba(16,63,59,.12); vertical-align: top; }
+.benefit-comparison-table thead { background: rgba(16,63,59,.06); color: var(--teal); }
+.benefit-comparison-table tbody th { width: 23%; color: var(--teal); }
+.benefit-comparison-table td { width: 38.5%; color: #496662; }
+.benefit-comparison-table tbody tr:nth-child(even) { background: rgba(16,63,59,.025); }
+.benefit-comparison-scroll:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
