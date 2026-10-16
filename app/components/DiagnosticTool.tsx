@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useMemo, useRef, useState } from "react";
 import { formspreeEndpoint } from "../lib/formspree";
 
 type Answers = {
@@ -27,6 +27,8 @@ export function DiagnosticTool() {
   const [answers, setAnswers] = useState<Answers>(initial);
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+  const pending = useRef(false);
 
   const result = useMemo(() => {
     const processRisk = answers.process === "manual" ? 22 : answers.process === "partial" ? 11 : 3;
@@ -44,19 +46,23 @@ export function DiagnosticTool() {
   }
 
   async function submitLead(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault(); setSending(true);
+    event.preventDefault();
+    if (pending.current) return;
+    pending.current = true;
+    setSending(true);
+    setError("");
     const data = new FormData(event.currentTarget);
-    data.set("_subject", "Novo diagnóstico de gestão de benefícios");
-    data.set("tipo_formulario", "Diagnóstico geral");
     data.set("pagina", window.location.pathname);
-    data.set("diagnostico", `Índice ${result.score}/100; ${result.monthlyHours}h/mês; risco ${result.risk}%; prioridade ${result.route.label}`);
+    new URLSearchParams(window.location.search).forEach((value, key) => {
+      if (key.startsWith("utm_")) data.set(key, value.slice(0, 300));
+    });
     try {
       const response = await fetch(formspreeEndpoint, { method: "POST", body: data, headers: { Accept: "application/json" } });
       if (!response.ok) throw new Error("submit");
       setSent(true);
     } catch {
-      window.open("https://wa.link/3gwhbl", "_blank", "noopener,noreferrer");
-    } finally { setSending(false); }
+      setError("Não foi possível confirmar o envio. Seus dados foram mantidos. Tente novamente em instantes.");
+    } finally { pending.current = false; setSending(false); }
   }
 
   return (
@@ -121,7 +127,28 @@ export function DiagnosticTool() {
         <div className="assumptions"><b>Premissas visíveis</b><p>4,33 semanas/mês · custo-hora de RH de R$ 72 · risco ponderado por fornecedores, nível de integração e frequência de ajustes. Ajuste estas premissas em uma conversa de diagnóstico.</p></div>
         <div className="lead-panel">
           {!sent ? <><div><span>ANÁLISE PERSONALIZADA</span><h3>Quer transformar este resultado em um plano de ação?</h3><p>Receba uma leitura humana do seu cenário, com foco no que pode gerar mais impacto para a empresa.</p></div>
-          <form action={formspreeEndpoint} method="POST" onSubmit={submitLead}><input name="nome" required placeholder="Seu nome" aria-label="Seu nome" /><input name="empresa" required placeholder="Empresa" aria-label="Empresa" /><input name="email" type="email" required placeholder="E-mail corporativo" aria-label="E-mail corporativo" /><button className="button" disabled={sending}>{sending ? "Enviando..." : "Quero uma análise gratuita"}</button></form></> :
+          <form action={formspreeEndpoint} method="POST" onSubmit={submitLead} aria-busy={sending}>
+            <input name="nome" autoComplete="name" required placeholder="Seu nome" aria-label="Seu nome" />
+            <input name="empresa" autoComplete="organization" required placeholder="Empresa" aria-label="Empresa" />
+            <input name="email" type="email" autoComplete="email" required placeholder="E-mail corporativo" aria-label="E-mail corporativo" />
+            {Object.entries({
+              _subject: "Novo diagnóstico de gestão de benefícios",
+              tipo_formulario: "Diagnóstico geral",
+              pagina: "/diagnostico",
+              colaboradores: answers.employees,
+              fornecedores: answers.suppliers,
+              horas_semanais_rh: answers.hours,
+              integracao_folha: { manual: "Planilhas e digitação manual", partial: "Parte integrada, parte manual", integrated: "Fluxo majoritariamente integrado" }[answers.process],
+              frequencia_ajustes: { rare: "Raramente", sometimes: "Em alguns fechamentos", frequent: "Quase todo mês" }[answers.errors],
+              prioridade: result.route.label,
+              indice_maturidade: result.score,
+              horas_mensais_estimadas: result.monthlyHours,
+              custo_oculto_mensal_estimado_reais: result.hiddenCost,
+              risco_divergencia_estimado_percentual: result.risk,
+              diagnostico: `Índice ${result.score}/100; ${result.monthlyHours}h/mês; risco ${result.risk}%; prioridade ${result.route.label}`,
+            }).map(([name, value]) => <input key={name} type="hidden" name={name} value={value} />)}
+            <button type="submit" className="button" disabled={sending}>{sending ? "Enviando..." : "Quero uma análise gratuita"}</button>
+          </form>{error && <p role="alert">{error}</p>}</> :
           <div className="success-message"><span>✓</span><h3>Recebemos seu diagnóstico.</h3><p>No próximo contato, conversaremos sobre suas prioridades e os próximos passos mais adequados.</p></div>}
         </div>
       </div>}
