@@ -2,6 +2,16 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
+test("ships crawl rules and the production sitemap without blocking articles", async () => {
+  const rules = await readFile(new URL("../public/robots.txt", import.meta.url), "utf8");
+  assert.match(rules, /User-agent: \*/);
+  assert.match(rules, /Allow: \//);
+  assert.match(rules, /Sitemap: https:\/\/www\.gestaobeneficios\.com\.br\/sitemap\.xml/);
+  assert.doesNotMatch(rules, /Disallow:\s*\//);
+  const builtRules = await readFile(new URL("../dist/client/robots.txt", import.meta.url), "utf8");
+  assert.equal(builtRules, rules);
+});
+
 async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${pathname}`);
