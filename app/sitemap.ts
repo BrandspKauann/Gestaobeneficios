@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { categories } from "./lib/category-data";
 import { articles } from "./lib/article-data";
+import { guideBySlug } from "./lib/article-guides";
 
 const siteUrl = "https://www.gestaobeneficios.com.br";
 
@@ -24,6 +25,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const articleRoutes: MetadataRoute.Sitemap = articles.map((article) => ({ url: `${siteUrl}/artigos/${article.slug}`, lastModified, changeFrequency: "monthly", priority: 0.7 }));
+  const articleRoutes: MetadataRoute.Sitemap = articles.map((article) => ({ url: `${siteUrl}/artigos/${article.slug}`, lastModified: guideBySlug(article.slug)?.updatedAt || lastModified, changeFrequency: "monthly", priority: 0.7 }));
   return [...fixedRoutes, ...categoryRoutes, ...articleRoutes];
 }

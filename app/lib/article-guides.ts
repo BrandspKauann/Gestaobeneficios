@@ -1,3 +1,4 @@
+import { weeklyGuides } from "./weekly-guides";
 type ArticleSource = { label: string; href: string };
 
 type GuideSection = {
@@ -18,6 +19,8 @@ export type ArticleGuide = {
   checklist: string[];
   updatedAt: string;
   publishedAt?: string;
+  image?: string;
+  imageAlt?: string;
   sections: GuideSection[];
   relatedSlugs: string[];
   cta: { title: string; text: string; label: string; href: string };
@@ -33,6 +36,7 @@ const sources = {
 };
 
 export const articleGuides: ArticleGuide[] = [
+  ...weeklyGuides,
   {
     slug: "folha-pagamento-trocar-instituicao-ou-renegociar",
     title: "Folha de pagamento: vale trocar de instituição ou renegociar onde sua empresa está?",
