@@ -1,3 +1,4 @@
+import { weeklyGuides20261104 } from "./weekly-guides-20261104";
 import { weeklyGuides } from "./weekly-guides";
 type ArticleSource = { label: string; href: string };
 
@@ -36,6 +37,7 @@ const sources = {
 };
 
 export const articleGuides: ArticleGuide[] = [
+  ...weeklyGuides20261104,
   ...weeklyGuides,
   {
     slug: "folha-pagamento-trocar-instituicao-ou-renegociar",
