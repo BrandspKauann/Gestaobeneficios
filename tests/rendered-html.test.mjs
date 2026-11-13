@@ -23,6 +23,28 @@ async function render(pathname = "/") {
   );
 }
 
+test("revised renewal and RH guides keep their URLs and render unique SEO, narrative and diagnostic links", async () => {
+  const sitemapResponse = await render("/sitemap.xml");
+  const sitemap = await sitemapResponse.text();
+  for (const [slug, title] of [
+    ["checklist-renovacao-beneficios", "Renovação de benefícios: o que revisar antes de assinar"],
+    ["governanca-beneficios-cfo-rh", "Gestão de benefícios no RH: como decidir com o financeiro"],
+  ]) {
+    const response = await render(`/artigos/${slug}`);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    assert.ok(html.includes(`<title>${title}</title>`));
+    assert.equal((html.match(/<h1(?:\s[^>]*)?>/g) || []).length, 1);
+    assert.ok(html.includes(`href="https://www.gestaobeneficios.com.br/artigos/${slug}"`));
+    assert.ok(html.includes('"@type":"BlogPosting"'));
+    assert.ok(html.includes('"dateModified":"2026-11-13"'));
+    assert.ok(html.includes('href="/diagnostico"'));
+    assert.ok(html.includes('orcamento-beneficios-2027-reajuste-crescimento-equipe'));
+    assert.ok(!html.includes("Quando o tema é"), "Targeted guidance must replace the former generic body");
+    assert.equal((sitemap.match(new RegExp(`<loc>https://www.gestaobeneficios.com.br/artigos/${slug}</loc>`, "g")) || []).length, 1);
+  }
+});
+
 test("server-renders the diagnostic-first homepage", async () => {
   const response = await render();
   assert.equal(response.status, 200);

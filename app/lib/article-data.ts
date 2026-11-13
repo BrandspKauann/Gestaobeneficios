@@ -27,7 +27,7 @@ const existingArticles: Article[] = existingArticleRows.map(([slug,title,descrip
 
 export const articles: Article[] = [
   ...articleGuides,
-  ...existingArticles,
+  ...existingArticles.filter((article) => !articleGuides.some((guide) => guide.slug === article.slug)),
 ];
 
 export const articleBySlug = (slug: string) => articles.find((article) => article.slug === slug);
