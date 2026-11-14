@@ -1,3 +1,4 @@
+import { commercialGuides20261114 } from "./commercial-guides-20261114";
 import { weeklyGuides20261104 } from "./weekly-guides-20261104";
 import { weeklyGuides } from "./weekly-guides";
 import { revisedGuides20261113 } from "./revised-guides-20261113";
@@ -38,6 +39,7 @@ const sources = {
 };
 
 export const articleGuides: ArticleGuide[] = [
+  ...commercialGuides20261114,
   ...revisedGuides20261113,
   ...weeklyGuides20261104,
   ...weeklyGuides,

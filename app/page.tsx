@@ -10,10 +10,10 @@ export default function Home() {
         <div className="hero-glow hero-glow-one" /><div className="hero-glow hero-glow-two" />
         <div className="hero-copy">
           <p className="eyebrow"><span /> Diagnóstico gratuito para o RH</p>
-          <h1>Reduza o custo oculto da sua gestão de benefícios. <em>Veja onde agir primeiro.</em></h1>
+          <h1>A melhor decisão sobre benefícios <em>começa com um diagnóstico grátis.</em></h1>
           <p className="hero-lead">Descubra onde o RH perde tempo, dinheiro e segurança. Em menos de três minutos, identifique uma prioridade clara de ação a partir dos gargalos operacionais.</p>
-          <div className="hero-actions"><a className="button" href="/diagnostico">Quero meu diagnóstico gratuito</a><a className="text-link" href="/sobre-o-metodo"><i>▶</i> Ver como funciona</a></div>
-          <div className="hero-proof"><span className="mini-seal">H</span><p><strong>Resultado inicial em menos de 3 minutos</strong><br />Sem compromisso e sem indicação automática.</p></div>
+          <div className="hero-actions"><a className="button" href="/diagnostico">Comece gratuitamente</a><a className="text-link" href="/sobre-o-metodo"><i>▶</i> Ver como funciona</a></div>
+          <div className="hero-proof"><span className="mini-seal">H</span><p><strong>Resultado inicial em menos de 3 minutos</strong><br />Diagnóstico inicial sem custo. Serviços posteriores dependem de proposta.</p></div>
         </div>
         <div className="hero-visual" aria-label="Exemplo de diagnóstico de gestão de benefícios">
           <div className="visual-orbit orbit-one" /><div className="visual-orbit orbit-two" />
@@ -58,7 +58,7 @@ export default function Home() {
         <aside><span className="mini-label">EXEMPLO DE RESULTADO</span><div className="big-score"><strong>42</strong><span>/100</span></div><p>Seu RH pode estar dedicando <b>32 horas por mês</b> a uma rotina que deveria estar integrada.</p><div className="mini-bars"><i style={{width:"74%"}}/><i style={{width:"58%"}}/><i style={{width:"86%"}}/></div><small>As estimativas mudam conforme suas respostas.</small></aside>
       </section>
 
-      <section className="closing-section"><p className="kicker">COMECE SEM COMPROMISSO</p><h2>Pare de investir em benefícios sem saber onde está o problema.</h2><a className="button" href="/diagnostico">Quero meu diagnóstico gratuito</a></section>
+      <section className="closing-section"><p className="kicker">COMECE SEM COMPROMISSO</p><h2>Pare de investir em benefícios sem saber onde está o problema.</h2><a className="button" href="/diagnostico">Comece gratuitamente</a></section>
       <SiteFooter />
     </main>
   );
