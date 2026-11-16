@@ -49,9 +49,9 @@ test("server-renders the diagnostic-first homepage", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /A melhor decisão sobre benefícios/);
-  assert.match(html, /Comece gratuitamente/);
-  assert.match(html, /Gestão de benefícios: a melhor decisão começa grátis/);
+  assert.match(html, /Gestão de benefícios com profundidade/);
+  assert.match(html, /Solicitar diagnóstico de perfil/);
+  assert.match(html, /Gestão de Benefícios Corporativos \| Consultoria estratégica/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Starter Project/);
   assert.doesNotMatch(html, /↗|→|↑|←/);
   assert.doesNotMatch(html, /↻|≠|⌁/);
