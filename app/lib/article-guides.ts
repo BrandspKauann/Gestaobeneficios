@@ -1,3 +1,4 @@
+import { weeklyGuides20261118 } from "./weekly-guides-20261118";
 import { commercialGuides20261114 } from "./commercial-guides-20261114";
 import { weeklyGuides20261104 } from "./weekly-guides-20261104";
 import { weeklyGuides } from "./weekly-guides";
@@ -42,6 +43,7 @@ export const articleGuides: ArticleGuide[] = [
   ...commercialGuides20261114,
   ...revisedGuides20261113,
   ...weeklyGuides20261104,
+  ...weeklyGuides20261118,
   ...weeklyGuides,
   {
     slug: "folha-pagamento-trocar-instituicao-ou-renegociar",
