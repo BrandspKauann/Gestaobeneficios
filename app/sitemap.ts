@@ -6,14 +6,14 @@ import { guideBySlug } from "./lib/article-guides";
 const siteUrl = "https://www.gestaobeneficios.com.br";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  const lastModified = undefined; // Unknown dates are omitted; requests do not modify content.
   const fixedRoutes: MetadataRoute.Sitemap = [
     { url: siteUrl, lastModified, changeFrequency: "weekly", priority: 1 },
     { url: `${siteUrl}/diagnostico`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${siteUrl}/diagnostico-folha`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/pagamento-de-folha`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/categorias`, lastModified, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${siteUrl}/artigos`, lastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${siteUrl}/artigos`, lastModified: articles.map(a => guideBySlug(a.slug)?.updatedAt).filter(Boolean).sort().at(-1), changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteUrl}/para-quem-e`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/sobre-o-metodo`, lastModified, changeFrequency: "monthly", priority: 0.7 },
   ];
@@ -25,6 +25,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const articleRoutes: MetadataRoute.Sitemap = articles.map((article) => ({ url: `${siteUrl}/artigos/${article.slug}`, lastModified: guideBySlug(article.slug)?.updatedAt || lastModified, changeFrequency: "monthly", priority: 0.7 }));
+  const articleRoutes: MetadataRoute.Sitemap = articles.map((article) => ({ url: `${siteUrl}/artigos/${article.slug}`, lastModified: guideBySlug(article.slug)?.updatedAt, changeFrequency: "monthly", priority: 0.7 }));
   return [...fixedRoutes, ...categoryRoutes, ...articleRoutes];
 }

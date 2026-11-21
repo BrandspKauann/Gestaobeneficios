@@ -9,12 +9,13 @@ export const revisedGuides20261113: ArticleGuide[] = [
     category: "Processo",
     focus: "revisão de benefícios corporativos antes da renovação",
     checklist: [],
-    updatedAt: "2026-11-13",
+    updatedAt: "2026-11-21",
     sections: [
       { id: "antes-da-proposta", title: "A renovação começa antes da nova proposta", paragraphs: [
         "O contrato está perto de vencer e a proposta chega com uma condição que parece melhor. Antes de assinar, vale responder a uma pergunta: a empresa precisa renegociar preço, corrigir a operação ou rever o benefício? Sem essa distinção, uma troca pode manter o problema e ainda acrescentar o trabalho da implantação.",
         "A revisão de benefícios corporativos reúne o que RH e financeiro já sabem sobre o contrato e transforma essa informação em critérios. O resultado pode ser manter e renegociar, comparar alternativas ou preparar uma mudança. A decisão não precisa começar pela escolha de uma nova marca."
       ] },
+      { id: "criterios-comparaveis", title: "Compare as propostas pelo mesmo cenário", paragraphs: ["Se a empresa quer melhorar a operação, transforme cada problema em uma condição verificável. Em vez de pedir apenas uma taxa menor, descreva a dificuldade de cadastro, o retorno esperado do suporte ou a conferência necessária no financeiro. Peça ao fornecedor que indique como o produto ofertado atende a esse cenário.", "Na revisão, diferencie o que está confirmado no contrato do que ainda é promessa comercial. Defina quem valida a informação e deixe as pendências visíveis antes de assinar. Não é necessário trocar de fornecedor quando o problema pode ser tratado por renegociação e ajuste do processo."] },
       { id: "condicoes-atuais", title: "Coloque as condições atuais na mesma página", paragraphs: [
         "Reúna o contrato vigente, os serviços incluídos, a regra de atualização de preço, a data de renovação e as condições de encerramento. Identifique também compromissos assumidos fora do documento principal. Quando uma informação não estiver clara, registre a dúvida e peça confirmação ao responsável pelo contrato.",
         "Compare valores para o mesmo público e o mesmo período. A entrada de uma unidade ou de novos colaboradores muda a despesa mesmo sem alteração do preço por pessoa. Para entender essa diferença, use o orçamento de benefícios como apoio e separe preço, quantidade e mudança de escopo."

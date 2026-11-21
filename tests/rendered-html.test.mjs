@@ -37,7 +37,7 @@ test("revised renewal and RH guides keep their URLs and render unique SEO, narra
     assert.equal((html.match(/<h1(?:\s[^>]*)?>/g) || []).length, 1);
     assert.ok(html.includes(`href="https://www.gestaobeneficios.com.br/artigos/${slug}"`));
     assert.ok(html.includes('"@type":"BlogPosting"'));
-    assert.ok(html.includes('"dateModified":"2026-11-13"'));
+    assert.ok(html.includes(`"dateModified":"${slug === 'checklist-renovacao-beneficios' ? '2026-11-21' : '2026-11-13'}"`));
     assert.ok(html.includes('href="/diagnostico"'));
     assert.ok(html.includes('orcamento-beneficios-2027-reajuste-crescimento-equipe'));
     assert.ok(!html.includes("Quando o tema é"), "Targeted guidance must replace the former generic body");
