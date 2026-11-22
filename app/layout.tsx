@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "www.gestaobeneficios.com.br";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
   const requestBase = new URL(`${protocol}://${host}`);
-  const title = "Gestão de Benefícios Corporativos | Consultoria estratégica";
+  const title = "Faça cotação agora | Gestão de benefícios corporativos";
   const description = "Uma análise da operação de benefícios para RH e financeiro decidirem com segurança. Atendimento próximo, diagnóstico de perfil e acompanhamento pela Hirayama.";
 
   return {

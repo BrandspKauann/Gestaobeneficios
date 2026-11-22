@@ -7,8 +7,9 @@ const siteUrl = "https://www.gestaobeneficios.com.br";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = undefined; // Unknown dates are omitted; requests do not modify content.
+  const homepageLastModified = new Date("2026-11-22T00:00:00.000Z");
   const fixedRoutes: MetadataRoute.Sitemap = [
-    { url: siteUrl, lastModified, changeFrequency: "weekly", priority: 1 },
+    { url: siteUrl, lastModified: homepageLastModified, changeFrequency: "weekly", priority: 1 },
     { url: `${siteUrl}/diagnostico`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${siteUrl}/diagnostico-folha`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${siteUrl}/pagamento-de-folha`, lastModified, changeFrequency: "monthly", priority: 0.8 },
