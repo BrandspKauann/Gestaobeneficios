@@ -4,7 +4,7 @@ import type { ArticleGuide } from "./article-guides";
 export const revisedGuides20261113: ArticleGuide[] = [
   {
     slug: "checklist-renovacao-beneficios",
-    title: "Renovação de benefícios: o que revisar antes de assinar",
+    title: "Renovação de benefícios corporativos: checklist para o RH",
     description: "Vai renovar os benefícios da empresa? Confira contrato, custos e rotina do RH para negociar com critérios e decidir se vale manter ou mudar.",
     category: "Processo",
     focus: "revisão de benefícios corporativos antes da renovação",
